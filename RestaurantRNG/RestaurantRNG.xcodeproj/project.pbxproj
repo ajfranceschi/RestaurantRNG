@@ -15,7 +15,7 @@
 		A97A548129BBCFF60034BEE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97A547F29BBCFF60034BEE6 /* LaunchScreen.storyboard */; };
 		A97A548A29BBD0050034BEE6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A97A548829BBD0040034BEE6 /* LICENSE */; };
 		A97A548B29BBD0050034BEE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A97A548929BBD0040034BEE6 /* README.md */; };
-		A97A548D29BBD0510034BEE6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A97A548C29BBD0510034BEE6 /* .gitignore */; };
+		A97A549129BBD6760034BEE6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A97A549029BBD6760034BEE6 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		A97A548229BBCFF60034BEE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A97A548829BBD0040034BEE6 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A97A548929BBD0040034BEE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		A97A548C29BBD0510034BEE6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		A97A549029BBD6760034BEE6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 		A97A546829BBCFF40034BEE6 = {
 			isa = PBXGroup;
 			children = (
-				A97A548C29BBD0510034BEE6 /* .gitignore */,
+				A97A549029BBD6760034BEE6 /* .gitignore */,
 				A97A548829BBD0040034BEE6 /* LICENSE */,
 				A97A548929BBD0040034BEE6 /* README.md */,
 				A97A547329BBCFF40034BEE6 /* RestaurantRNG */,
@@ -138,7 +138,7 @@
 				A97A547E29BBCFF60034BEE6 /* Assets.xcassets in Resources */,
 				A97A548B29BBD0050034BEE6 /* README.md in Resources */,
 				A97A548A29BBD0050034BEE6 /* LICENSE in Resources */,
-				A97A548D29BBD0510034BEE6 /* .gitignore in Resources */,
+				A97A549129BBD6760034BEE6 /* .gitignore in Resources */,
 				A97A547C29BBCFF40034BEE6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
