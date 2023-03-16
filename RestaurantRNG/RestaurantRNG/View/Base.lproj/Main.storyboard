@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="toB-mD-CeR">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="toB-mD-CeR">
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eH4-cz-7f4">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="eH4-cz-7f4">
                                         <rect key="frame" x="16" y="0.0" width="361" height="456"/>
                                         <standardMapConfiguration key="preferredConfiguration"/>
                                     </mapView>
@@ -42,10 +42,10 @@
                                         </subviews>
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="2gd-6y-0A2">
-                                        <rect key="frame" x="48" y="506.33333333333337" width="297" height="31"/>
+                                        <rect key="frame" x="48" y="506.33333333333331" width="297" height="30.333333333333314"/>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xco-Jb-LHo">
-                                        <rect key="frame" x="93.333333333333329" y="551.33333333333337" width="206.33333333333337" height="20.333333333333371"/>
+                                        <rect key="frame" x="93.333333333333329" y="550.66666666666663" width="206.33333333333337" height="20.333333333333371"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximum DIstance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCj-nI-3Ss">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="20.333333333333332"/>
@@ -62,7 +62,7 @@
                                         </subviews>
                                     </stackView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lm2-bO-3NW">
-                                        <rect key="frame" x="48" y="586.66666666666663" width="297" height="30.333333333333371"/>
+                                        <rect key="frame" x="48" y="586" width="297" height="31"/>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0D-52-fTD">
                                         <rect key="frame" x="124.33333333333333" y="631" width="144.66666666666669" height="35"/>
