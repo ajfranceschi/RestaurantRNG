@@ -64,7 +64,7 @@ RestaurantRNG is designed to remove the stress involved when deciding what to ea
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://github.com/CodePath-Capstone-TheBestThatEverLived/RestaurantRNG/blob/wireframe/wireframe.jpg?raw=true" width=600>
 
 ### Models
 * User
