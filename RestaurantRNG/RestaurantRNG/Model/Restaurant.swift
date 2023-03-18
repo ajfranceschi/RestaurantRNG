@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import CoreLocation
+
+struct Restaurant {
+    
+    var coordinate: CLLocationCoordinate2D
+    
+}
