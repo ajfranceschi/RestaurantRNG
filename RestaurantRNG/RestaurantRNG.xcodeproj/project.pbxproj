@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D2C060A29BCFD7C002EA244 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C060929BCFD7C002EA244 /* Restaurant.swift */; };
 		A97A547529BBCFF40034BEE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A547429BBCFF40034BEE6 /* AppDelegate.swift */; };
 		A97A547729BBCFF40034BEE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A547629BBCFF40034BEE6 /* SceneDelegate.swift */; };
-		A97A547929BBCFF40034BEE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A547829BBCFF40034BEE6 /* ViewController.swift */; };
+		A97A547929BBCFF40034BEE6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A547829BBCFF40034BEE6 /* MapViewController.swift */; };
 		A97A547C29BBCFF40034BEE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97A547A29BBCFF40034BEE6 /* Main.storyboard */; };
 		A97A547E29BBCFF60034BEE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97A547D29BBCFF60034BEE6 /* Assets.xcassets */; };
 		A97A548129BBCFF60034BEE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97A547F29BBCFF60034BEE6 /* LaunchScreen.storyboard */; };
@@ -19,10 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D2C060929BCFD7C002EA244 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		A97A547129BBCFF40034BEE6 /* RestaurantRNG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantRNG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97A547429BBCFF40034BEE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A97A547629BBCFF40034BEE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A97A547829BBCFF40034BEE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A97A547829BBCFF40034BEE6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A97A547B29BBCFF40034BEE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A97A547D29BBCFF60034BEE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A97A548029BBCFF60034BEE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +45,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D2C060629BCFD17002EA244 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D2C060929BCFD7C002EA244 /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D2C060729BCFD1D002EA244 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A97A547A29BBCFF40034BEE6 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D2C060829BCFD28002EA244 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A97A547829BBCFF40034BEE6 /* MapViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A97A546829BBCFF40034BEE6 = {
 			isa = PBXGroup;
 			children = (
@@ -65,10 +91,11 @@
 		A97A547329BBCFF40034BEE6 /* RestaurantRNG */ = {
 			isa = PBXGroup;
 			children = (
+				9D2C060629BCFD17002EA244 /* Model */,
+				9D2C060729BCFD1D002EA244 /* View */,
+				9D2C060829BCFD28002EA244 /* Controller */,
 				A97A547429BBCFF40034BEE6 /* AppDelegate.swift */,
 				A97A547629BBCFF40034BEE6 /* SceneDelegate.swift */,
-				A97A547829BBCFF40034BEE6 /* ViewController.swift */,
-				A97A547A29BBCFF40034BEE6 /* Main.storyboard */,
 				A97A547D29BBCFF60034BEE6 /* Assets.xcassets */,
 				A97A547F29BBCFF60034BEE6 /* LaunchScreen.storyboard */,
 				A97A548229BBCFF60034BEE6 /* Info.plist */,
@@ -150,7 +177,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A97A547929BBCFF40034BEE6 /* ViewController.swift in Sources */,
+				9D2C060A29BCFD7C002EA244 /* Restaurant.swift in Sources */,
+				A97A547929BBCFF40034BEE6 /* MapViewController.swift in Sources */,
 				A97A547529BBCFF40034BEE6 /* AppDelegate.swift in Sources */,
 				A97A547729BBCFF40034BEE6 /* SceneDelegate.swift in Sources */,
 			);
@@ -299,9 +327,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N68ZU8HP37;
+				DEVELOPMENT_TEAM = 33WF496U8F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RestaurantRNG/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RestaurantRNG;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -312,7 +342,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RestaurantRNG;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.fiu.ecraw007.RestaurantRNG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -327,9 +357,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N68ZU8HP37;
+				DEVELOPMENT_TEAM = 33WF496U8F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RestaurantRNG/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RestaurantRNG;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -340,7 +372,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RestaurantRNG;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.fiu.ecraw007.RestaurantRNG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
