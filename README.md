@@ -10,8 +10,26 @@
 ### Description
 RestaurantRNG is designed to remove the stress involved when deciding what to eat. No longer will users have to spend hours deciding where their next meal will come from.  Just press a button and RestaurantRNG will tell you what restaurant to feast at.
 
+### Updated Course Portal group info: Group Name + App Description
+Group Name: TheBestThatEverLived
+App Description and Final App Idea Chosen:
+Our final app idea is an application that allows indecisive users to have a way of picking food places to eat at a selected price tag. This will be done by having the user click a button that will randomly select a restaurant and allow the user to either accept or reroll the restaurant they are given. 
+
+### Initial Brainstorming Ideas: 
+1. Poker game
+2. Food Chooser app
+3. Travel Application
+4. Finance Application
+
+### Evaluation of Top 3 Ideas:
+1. Poker game a game that you can play with other people
+2. Food app that helps indecisive people find places to eat
+3. Travel Application to help people find good travel spots
+
+### Final app idea chosen:
+1. RestaurantRNG a food app that helps indecisive people find a place to eat with the press of a single button.
+
 ### App Evaluation
-[Evaluation of your app across the following attributes]
 - **Category:** Dining/Restauraunt Application
 - **Mobile:** This app would be primarily developed for mobile but would perhaps be just as viable on a computer, such as tinder or other similar apps. Functionality wouldn't be limited to mobile devices, however mobile version could potentially have more features.
 - **Story:** Obtains the user location and displays **N** amount of restaurant available within the selected distance radius and rating.
