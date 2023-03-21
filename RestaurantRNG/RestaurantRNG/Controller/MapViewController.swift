@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CDYelpFusionKit
 
 class MapViewController: UIViewController {
     
@@ -23,7 +24,7 @@ class MapViewController: UIViewController {
     
     private let locationManager = CLLocationManager()
     // set current location to FIU campus until updated by device location
-    private var currentLocation : CLLocation = CLLocation(latitude: 25.7562, longitude: 80.3755)
+    private var currentLocation : CLLocation = CLLocation(latitude: 25.7562, longitude: -80.3755)
     
     var restaurants = [Restaurant]() {
         didSet {
@@ -48,6 +49,11 @@ class MapViewController: UIViewController {
         // UI candy
         mapView.layer.cornerRadius = 12
         
+        // Remove default POIs
+        let mapConfiguration = MKStandardMapConfiguration()
+        mapConfiguration.pointOfInterestFilter = MKPointOfInterestFilter.excludingAll
+        mapView.preferredConfiguration = mapConfiguration
+        
         DispatchQueue.main.async {
             self.updateMapView()
         }
@@ -58,8 +64,10 @@ class MapViewController: UIViewController {
         // set mapView's region based on coordinates
         // span represents "zoom level", where a small value is more zoomed in
         // this should eventually be adjusted based on search radius selected by user
-        let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(region, animated: false)
+        
+        updateRestaurants()
         
         // "for each" loop that effectively adds a pin/annotation for each restaurant in array
         for restaurant in restaurants {
@@ -74,6 +82,19 @@ class MapViewController: UIViewController {
         
         // this is probably where we should trigger API to retrieve data,
         // then update UI elements after successful pull
+        
+        // MARK: Declare a constant named YELP_API_KEY in /RestaurantRNG/Env/EnvVars.swift (must create structure for your project)
+        let yelpApi = CDYelpAPIClient(apiKey: YELP_API_KEY)
+        
+        yelpApi.searchBusinesses(byTerm: nil, location: nil, latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude, radius: 1000, categories: [.restaurants], locale: nil, limit: 20, offset: nil, sortBy: .distance, priceTiers: nil, openNow: nil, openAt: nil, attributes: nil) { (response) in
+            if let res = response,
+               let businesses = res.businesses,
+               businesses.count > 0 {
+                print(businesses)
+            } else {
+                print(response)
+            }
+        }
     }
     
 
