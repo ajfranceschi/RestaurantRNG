@@ -9,6 +9,7 @@ import Foundation
 import MapKit
 import CoreLocation
 import Nuke
+
 struct Restaurant{
     let distance: Double
     let latitude: Double

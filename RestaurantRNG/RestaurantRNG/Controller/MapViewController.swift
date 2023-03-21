@@ -7,7 +7,6 @@
 
 import UIKit
 import MapKit
-import CDYelpFusionKit
 
 class MapViewController: UIViewController {
     
@@ -72,7 +71,7 @@ class MapViewController: UIViewController {
         // "for each" loop that effectively adds a pin/annotation for each restaurant in array
         for restaurant in restaurants {
             let annotation = MKPointAnnotation()
-            annotation.coordinate = restaurant.coordinate
+            annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
             mapView.addAnnotation(annotation)
         }
 
@@ -84,18 +83,14 @@ class MapViewController: UIViewController {
         // then update UI elements after successful pull
         
         // MARK: Declare a constant named YELP_API_KEY in /RestaurantRNG/Env/EnvVars.swift (must create structure for your project)
-        let yelpApi = CDYelpAPIClient(apiKey: YELP_API_KEY)
-        
-        yelpApi.searchBusinesses(byTerm: nil, location: nil, latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude, radius: 1000, categories: [.restaurants], locale: nil, limit: 20, offset: nil, sortBy: .distance, priceTiers: nil, openNow: nil, openAt: nil, attributes: nil) { (response) in
-            if let res = response,
-               let businesses = res.businesses,
-               businesses.count > 0 {
-                print(businesses)
-            } else {
-                print(response)
-            }
-        }
+        // Get restaurants on a 1 mile radius from user location
+        let latitude = currentLocation.coordinate.latitude
+        let longitude = currentLocation.coordinate.longitude
+        getRestaurantsFromYelp(latitude: latitude, longitude: longitude)
+       
     }
+    
+    
     
 
     @IBAction func ratingSliderUpdated(_ sender: UISlider) {
