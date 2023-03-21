@@ -18,7 +18,9 @@
 		A97A548B29BBD0050034BEE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A97A548929BBD0040034BEE6 /* README.md */; };
 		A97A549129BBD6760034BEE6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A97A549029BBD6760034BEE6 /* .gitignore */; };
 		A990882E29C8161500317CD5 /* EnvVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = A990882D29C8161500317CD5 /* EnvVars.swift */; };
-		A990883129C8188400317CD5 /* CDYelpFusionKit in Frameworks */ = {isa = PBXBuildFile; productRef = A990883029C8188400317CD5 /* CDYelpFusionKit */; };
+		A9AFEE1B29C956150088BF43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AFEE1A29C956150088BF43 /* Constants.swift */; };
+		A9AFEE2129C95FD50088BF43 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = A9AFEE2029C95FD50088BF43 /* Nuke */; };
+		A9AFEE2529C9642D0088BF43 /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AFEE2429C9642D0088BF43 /* HelperMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		A97A548929BBD0040034BEE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A97A549029BBD6760034BEE6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		A990882D29C8161500317CD5 /* EnvVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvVars.swift; sourceTree = "<group>"; };
+		A9AFEE1A29C956150088BF43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A9AFEE2429C9642D0088BF43 /* HelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A990883129C8188400317CD5 /* CDYelpFusionKit in Frameworks */,
+				A9AFEE2129C95FD50088BF43 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +99,6 @@
 		A97A547329BBCFF40034BEE6 /* RestaurantRNG */ = {
 			isa = PBXGroup;
 			children = (
-				A990882C29C815DE00317CD5 /* Env */,
 				9D2C060629BCFD17002EA244 /* Model */,
 				9D2C060729BCFD1D002EA244 /* View */,
 				9D2C060829BCFD28002EA244 /* Controller */,
@@ -103,6 +106,9 @@
 				A97A547629BBCFF40034BEE6 /* SceneDelegate.swift */,
 				A97A547D29BBCFF60034BEE6 /* Assets.xcassets */,
 				A97A547F29BBCFF60034BEE6 /* LaunchScreen.storyboard */,
+				A9AFEE2329C964170088BF43 /* Util */,
+				A9AFEE1929C955EE0088BF43 /* Constants */,
+				A990882C29C815DE00317CD5 /* Env */,
 				A97A548229BBCFF60034BEE6 /* Info.plist */,
 			);
 			path = RestaurantRNG;
@@ -114,6 +120,22 @@
 				A990882D29C8161500317CD5 /* EnvVars.swift */,
 			);
 			path = Env;
+			sourceTree = "<group>";
+		};
+		A9AFEE1929C955EE0088BF43 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A9AFEE1A29C956150088BF43 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A9AFEE2329C964170088BF43 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A9AFEE2429C9642D0088BF43 /* HelperMethods.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +155,7 @@
 			);
 			name = RestaurantRNG;
 			packageProductDependencies = (
-				A990883029C8188400317CD5 /* CDYelpFusionKit */,
+				A9AFEE2029C95FD50088BF43 /* Nuke */,
 			);
 			productName = RestaurantRNG;
 			productReference = A97A547129BBCFF40034BEE6 /* RestaurantRNG.app */;
@@ -164,7 +186,7 @@
 			);
 			mainGroup = A97A546829BBCFF40034BEE6;
 			packageReferences = (
-				A990882F29C8188400317CD5 /* XCRemoteSwiftPackageReference "CDYelpFusionKit" */,
+				A9AFEE1F29C95FD50088BF43 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = A97A547229BBCFF40034BEE6 /* Products */;
 			projectDirPath = "";
@@ -199,8 +221,10 @@
 				9D2C060A29BCFD7C002EA244 /* Restaurant.swift in Sources */,
 				A97A547929BBCFF40034BEE6 /* MapViewController.swift in Sources */,
 				A97A547529BBCFF40034BEE6 /* AppDelegate.swift in Sources */,
+				A9AFEE2529C9642D0088BF43 /* HelperMethods.swift in Sources */,
 				A990882E29C8161500317CD5 /* EnvVars.swift in Sources */,
 				A97A547729BBCFF40034BEE6 /* SceneDelegate.swift in Sources */,
+				A9AFEE1B29C956150088BF43 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,21 +448,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A990882F29C8188400317CD5 /* XCRemoteSwiftPackageReference "CDYelpFusionKit" */ = {
+		A9AFEE1F29C95FD50088BF43 /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/chrisdhaan/CDYelpFusionKit.git";
+			repositoryURL = "https://github.com/kean/Nuke";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A990883029C8188400317CD5 /* CDYelpFusionKit */ = {
+		A9AFEE2029C95FD50088BF43 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A990882F29C8188400317CD5 /* XCRemoteSwiftPackageReference "CDYelpFusionKit" */;
-			productName = CDYelpFusionKit;
+			package = A9AFEE1F29C95FD50088BF43 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
