@@ -90,12 +90,12 @@
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7AC3B847018C06C35035B8C545D33B1B /* YLPQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YLPQuery.m; path = Classes/Request/YLPQuery.m; sourceTree = "<group>"; };
 		85840D6A1DDF1E18E96F69D86E6A1861 /* YLPCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YLPCategory.h; path = Classes/Response/YLPCategory.h; sourceTree = "<group>"; };
-		897F21EA87D720778FD31BEE8CDEC361 /* YelpAPI */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YelpAPI; path = YelpAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		897F21EA87D720778FD31BEE8CDEC361 /* YelpAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YelpAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB3A1A79D0957FA8A518F6135A438A1 /* Pods-RestaurantRNG.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RestaurantRNG.modulemap"; sourceTree = "<group>"; };
 		93D49CC914858CFC33E7883D14633EE6 /* YLPQueryPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YLPQueryPrivate.h; path = Classes/Request/YLPQueryPrivate.h; sourceTree = "<group>"; };
 		997EE465ED6BF805947A4BBA48DFB867 /* YLPResponsePrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YLPResponsePrivate.h; path = Classes/Response/YLPResponsePrivate.h; sourceTree = "<group>"; };
 		9CB15F0F27F8BA4C765358D9B5C523E1 /* Pods-RestaurantRNG-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RestaurantRNG-acknowledgements.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A0CD1CF363CFD0D3AF957487D933FCA1 /* YLPClientPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YLPClientPrivate.h; path = Classes/Client/YLPClientPrivate.h; sourceTree = "<group>"; };
 		AA2ECD40007DF613E1E6B8A35FDA0F2B /* YelpAPI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YelpAPI.modulemap; sourceTree = "<group>"; };
 		ADC603908DB849FA77EFE37D7F7F79A0 /* YLPClient+Reviews.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "YLPClient+Reviews.m"; path = "Classes/Client/YLPClient+Reviews.m"; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				435121BB65E18D92B1E4CF0D5E4B0ED3 /* Pods-RestaurantRNG */,
-				897F21EA87D720778FD31BEE8CDEC361 /* YelpAPI */,
+				897F21EA87D720778FD31BEE8CDEC361 /* YelpAPI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,7 +223,6 @@
 				C7A6D3C15982057B2D9DAAFE86F3AE07 /* YLPUser.m */,
 				621CECFB0BF2F9C4DE8DBFCAAA223DFE /* Support Files */,
 			);
-			name = YelpAPI;
 			path = YelpAPI;
 			sourceTree = "<group>";
 		};
@@ -319,7 +318,7 @@
 			);
 			name = YelpAPI;
 			productName = YelpAPI;
-			productReference = 897F21EA87D720778FD31BEE8CDEC361 /* YelpAPI */;
+			productReference = 897F21EA87D720778FD31BEE8CDEC361 /* YelpAPI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		304D6B0412AD98E3C3A12C0350F8F498 /* Pods-RestaurantRNG */ = {
@@ -586,7 +585,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/YelpAPI/YelpAPI-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/YelpAPI/YelpAPI-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,7 +681,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/YelpAPI/YelpAPI-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/YelpAPI/YelpAPI-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

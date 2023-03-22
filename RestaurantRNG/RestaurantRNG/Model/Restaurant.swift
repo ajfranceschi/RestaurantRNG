@@ -9,6 +9,7 @@ import Foundation
 import MapKit
 import CoreLocation
 import Nuke
+
 struct Restaurant {
     let name: String
     let image_url: URL?
@@ -27,10 +28,12 @@ struct Restaurant {
     let city : String
     let country: String
     let state: String
-
-    func toString(){
-        print(name)
-        print(streetAddress1)
+    
+    func toString() {
+        print("Name: \(name)")
+        print("Street Address: \(streetAddress1)")
+        print("Price $: \(price.count)")
+        print()
     }
     
 }
