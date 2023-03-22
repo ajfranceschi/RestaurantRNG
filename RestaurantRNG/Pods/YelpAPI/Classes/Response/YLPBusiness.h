@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) YLPLocation *location;
 
+@property (nonatomic, readonly) NSString *price;
+@property (nonatomic, readonly) double distance;
+
 @end
 
 NS_ASSUME_NONNULL_END

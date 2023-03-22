@@ -30,8 +30,9 @@ struct Restaurant {
     let state: String
     
     func toString() {
-        print(name)
-        print(streetAddress1)
+        print("Name: \(name)")
+        print("Street Address: \(streetAddress1)")
+        print("Price $: \(price.count)")
         print()
     }
     
