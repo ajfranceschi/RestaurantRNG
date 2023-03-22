@@ -86,7 +86,11 @@ extension Restaurant {
         }
         
         // Location
-        
+        for l in service.location{
+            let item = Location(address1: l.address1, address2: l.address2, address3: l.address3, city: l.city, zip_code: l.zip_code, country: l.country, state: l.state, display_address: l.display_address)
+            location.append(item)
+        }
         // Categories
+        
     }
 }
