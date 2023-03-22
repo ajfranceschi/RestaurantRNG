@@ -18,6 +18,7 @@
 		A97A548A29BBD0050034BEE6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A97A548829BBD0040034BEE6 /* LICENSE */; };
 		A97A548B29BBD0050034BEE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A97A548929BBD0040034BEE6 /* README.md */; };
 		A97A549129BBD6760034BEE6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A97A549029BBD6760034BEE6 /* .gitignore */; };
+		A97C076629CBC27C0086FC4C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C076529CBC27C0086FC4C /* SettingsViewController.swift */; };
 		A990882E29C8161500317CD5 /* EnvVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = A990882D29C8161500317CD5 /* EnvVars.swift */; };
 		A9AFEE1B29C956150088BF43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AFEE1A29C956150088BF43 /* Constants.swift */; };
 		A9AFEE2129C95FD50088BF43 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = A9AFEE2029C95FD50088BF43 /* Nuke */; };
@@ -40,6 +41,7 @@
 		A97A548829BBD0040034BEE6 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A97A548929BBD0040034BEE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A97A549029BBD6760034BEE6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
+		A97C076529CBC27C0086FC4C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A990882D29C8161500317CD5 /* EnvVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvVars.swift; sourceTree = "<group>"; };
 		A9AFEE1A29C956150088BF43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A9AFEE2429C9642D0088BF43 /* HelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
@@ -66,7 +68,6 @@
 				AD3C73D1A17804D9B1C5E51D /* Pods-RestaurantRNG.debug.xcconfig */,
 				38D6EE21592FA94566D03EE1 /* Pods-RestaurantRNG.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -99,6 +100,7 @@
 			children = (
 				A97A547829BBCFF40034BEE6 /* MapViewController.swift */,
 				BFA51DD729CAB7C400611063 /* RestaurantViewController.swift */,
+				A97C076529CBC27C0086FC4C /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -298,6 +300,7 @@
 				A990882E29C8161500317CD5 /* EnvVars.swift in Sources */,
 				A97A547729BBCFF40034BEE6 /* SceneDelegate.swift in Sources */,
 				A9AFEE1B29C956150088BF43 /* Constants.swift in Sources */,
+				A97C076629CBC27C0086FC4C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,11 +448,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 33WF496U8F;
+				DEVELOPMENT_TEAM = N68ZU8HP37;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RestaurantRNG/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RestaurantRNG;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your current location is needed to search for nearby restaurants.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -460,7 +464,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.fiu.ecraw007.RestaurantRNG;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RestaurantRNG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -476,11 +480,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 33WF496U8F;
+				DEVELOPMENT_TEAM = N68ZU8HP37;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RestaurantRNG/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RestaurantRNG;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your current location is needed to search for nearby restaurants.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -491,7 +496,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edu.fiu.ecraw007.RestaurantRNG;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RestaurantRNG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
