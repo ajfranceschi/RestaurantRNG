@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import YelpAPI
 
 class MapViewController: UIViewController {
     
@@ -27,7 +28,9 @@ class MapViewController: UIViewController {
     
     var restaurants = [Restaurant]() {
         didSet {
-            updateMapView()
+            DispatchQueue.main.async {
+                self.updateMapView()
+            }
         }
     }
     
@@ -53,8 +56,12 @@ class MapViewController: UIViewController {
         mapConfiguration.pointOfInterestFilter = MKPointOfInterestFilter.excludingAll
         mapView.preferredConfiguration = mapConfiguration
         
+        
+        
+        
         DispatchQueue.main.async {
             self.updateMapView()
+            self.updateRestaurants()
         }
     }
     
@@ -65,9 +72,7 @@ class MapViewController: UIViewController {
         // this should eventually be adjusted based on search radius selected by user
         let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(region, animated: false)
-        
-        updateRestaurants()
-        
+                
         // "for each" loop that effectively adds a pin/annotation for each restaurant in array
         for restaurant in restaurants {
             let annotation = MKPointAnnotation()
@@ -124,7 +129,7 @@ extension MapViewController : CLLocationManagerDelegate {
             DispatchQueue.main.async {
                 // self.updateRestaurants() // will probably just be able to just call this because it will call
                 // updateMapView() itself
-                self.updateMapView()
+//                self.updateMapView()
             }
         }
     }
@@ -140,5 +145,67 @@ extension MapViewController : CLLocationManagerDelegate {
 extension MapViewController : MKMapViewDelegate {
     
     
+}
+
+
+// MARK: Get Restaurants from yelp function
+extension MapViewController {
+    func getRestaurantsFromYelp(latitude: Double, longitude: Double){
+        guard (latitude >= -90 && latitude <= 90) else {
+            print("latitude must be between -90 and 90")
+            return
+        }
+        
+        guard (longitude >= -180 && longitude <= 180) else {
+            print("latitude must be between -180 and 180")
+            return
+        }
+        
+        // MARK: Yelp API Test
+        let yelpClient = YLPClient(apiKey: YELP_API_KEY)
+        let yelpCoordinate = YLPCoordinate(latitude: latitude, longitude: longitude)
+        let yelpQuery = YLPQuery(coordinate: yelpCoordinate)
+        yelpQuery.categoryFilter = ["restaurants"]
+        yelpQuery.radiusFilter = 1600
+        yelpQuery.limit = 20
+
+        
+        yelpClient.search(with: yelpQuery) { search, error in
+            if let error = error {
+                print("Could not complete search. Error: \(error)")
+            } else {
+                if let search = search {
+                    for business in search.businesses {
+                        var stAddress2 = ""
+                        if business.location.address.count > 1 {
+                            stAddress2 = business.location.address[1]
+                        }
+                        self.restaurants.append(Restaurant(
+                            name: business.name,
+                            image_url: business.imageURL,
+                            is_closed: business.isClosed,
+                            url: business.url, category: business.categories[0].name,
+                            rating: business.rating,
+                            latitude: business.location.coordinate!.latitude,
+                            longitude: business.location.coordinate!.longitude,
+                            price: business.price,
+                            distance: business.distance,
+                            display_phone: business.phone,
+                            streetAddress1: business.location.address[0],
+                            streetAddress2: stAddress2,
+                            zipCode: business.location.postalCode,
+                            city: business.location.city,
+                            country: business.location.countryCode,
+                            state: business.location.stateCode))
+                    }
+                }
+            }
+            for restaurant in self.restaurants {
+                restaurant.toString()
+            }
+        }
+        
+        
+    }
 }
 
