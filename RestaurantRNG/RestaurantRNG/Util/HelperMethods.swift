@@ -10,6 +10,8 @@ import Foundation
 // YELP REQUEST
 
 func getRestaurantsFromYelp(latitude: Double, longitude: Double) {
+    var restaurants = [Restaurant]()
+    
     guard (latitude >= -90 && latitude <= 90) else {
         print("latitude must be between -90 and 90")
         return
@@ -33,14 +35,22 @@ func getRestaurantsFromYelp(latitude: Double, longitude: Double) {
     
     // Session
     let session = URLSession.shared
-    let dataTask = session.dataTask(with: request as URLRequest) { data, response, error in
+    session.dataTask(with: request as URLRequest) { data, response, error in
         if error != nil {
             print(error as Any)
         } else {
-            let httpResponse = response as? HTTPURLResponse
-            print(httpResponse as Any)
+            guard let jsonData = data else {
+                print("Data is nil")
+                return
+            }
+            
+            do {
+                let jsonResponse = try JSONDecoder().decode(RestaurantResponse.self, from: jsonData)
+                print(jsonResponse)
+            } catch let error {
+                print("Error Parsing JSON: \(error.localizedDescription)")
+            }
         }
-    }
+    }.resume()
     
-    dataTask.resume()
 }
