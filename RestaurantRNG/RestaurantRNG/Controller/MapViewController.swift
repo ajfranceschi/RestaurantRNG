@@ -57,8 +57,6 @@ class MapViewController: UIViewController {
         mapView.preferredConfiguration = mapConfiguration
         
         
-        
-        
         DispatchQueue.main.async {
             self.updateMapView()
             self.updateRestaurants()
@@ -70,16 +68,17 @@ class MapViewController: UIViewController {
         // set mapView's region based on coordinates
         // span represents "zoom level", where a small value is more zoomed in
         // this should eventually be adjusted based on search radius selected by user
-        let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
         mapView.setRegion(region, animated: false)
                 
         // "for each" loop that effectively adds a pin/annotation for each restaurant in array
-        for restaurant in restaurants {
-            let annotation = MKPointAnnotation()
-//            annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.coordinate.latitude, longitude: restaurant.coordinate.longitude)
-            mapView.addAnnotation(annotation)
+        if restaurants.count != 0 {
+            for restaurant in restaurants {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+                mapView.addAnnotation(annotation)
+            }
         }
-
     }
     
     private func updateRestaurants() {
@@ -113,6 +112,7 @@ class MapViewController: UIViewController {
             self.radiusLabel.text = formattedRadius
             
             // should eventually change region shown on map and updateMapView()
+            // TODO: This should be added to the settings VC
         }
     }
     
@@ -135,7 +135,7 @@ extension MapViewController : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        print("Error getting location: \(error)")
     }
     
 }
@@ -166,8 +166,9 @@ extension MapViewController {
         let yelpCoordinate = YLPCoordinate(latitude: latitude, longitude: longitude)
         let yelpQuery = YLPQuery(coordinate: yelpCoordinate)
         yelpQuery.categoryFilter = ["restaurants"]
-        yelpQuery.radiusFilter = 1600
+        yelpQuery.radiusFilter = Double(1600 * radiusSlider.value)
         yelpQuery.limit = 20
+        var tempRestaurants = [Restaurant]()
 
         
         yelpClient.search(with: yelpQuery) { search, error in
@@ -180,7 +181,7 @@ extension MapViewController {
                         if business.location.address.count > 1 {
                             stAddress2 = business.location.address[1]
                         }
-                        self.restaurants.append(Restaurant(
+                        tempRestaurants.append(Restaurant(
                             name: business.name,
                             image_url: business.imageURL,
                             is_closed: business.isClosed,
@@ -200,6 +201,8 @@ extension MapViewController {
                     }
                 }
             }
+            
+            self.restaurants = tempRestaurants
             for restaurant in self.restaurants {
                 restaurant.toString()
             }

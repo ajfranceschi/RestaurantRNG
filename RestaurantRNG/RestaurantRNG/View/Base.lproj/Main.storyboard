@@ -98,6 +98,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Choose For Me!"/>
+                                        <connections>
+                                            <segue destination="9j8-OT-PWb" kind="show" id="mkB-aI-pyi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -126,7 +129,13 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="RestaurantRNG" id="9XV-B2-EUb">
-                        <barButtonItem key="leftBarButtonItem" title="Preferences" image="gearshape.fill" catalog="system" id="xqi-nk-mtX"/>
+                        <barButtonItem key="leftBarButtonItem" title="Preferences" image="gearshape.fill" catalog="system" id="xqi-nk-mtX">
+                            <connections>
+                                <segue destination="jbv-mq-ioG" kind="popoverPresentation" popoverAnchorBarButtonItem="xqi-nk-mtX" id="xJw-Bk-Bjs">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Profile" image="person.fill" catalog="system" id="PbB-Vp-sCt"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -143,7 +152,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052.6717557251909" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1018" y="-332"/>
+        </scene>
+        <!--Restaurant View Controller-->
+        <scene sceneID="4Ue-IK-YIi">
+            <objects>
+                <viewController id="9j8-OT-PWb" customClass="RestaurantViewController" customModule="RestaurantRNG" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nzb-dM-ACS">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Zh3-nJ-J24"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T62-xK-a9g">
+                        <barButtonItem key="backBarButtonItem" title=" " id="haq-jZ-BOP"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bA4-cI-7Ma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1972" y="-2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FQm-5k-7eK">
@@ -161,7 +188,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVu-gk-3k3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129.00763358778624" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="187" y="-332"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="FRc-DW-r5U">
+            <objects>
+                <viewController id="jbv-mq-ioG" customClass="SettingsViewController" customModule="RestaurantRNG" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0JH-ng-jj0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zl4-Mj-QxQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Si6-rd-qfw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1972" y="-653"/>
         </scene>
     </scenes>
     <resources>
