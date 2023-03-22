@@ -71,7 +71,7 @@ class MapViewController: UIViewController {
         // "for each" loop that effectively adds a pin/annotation for each restaurant in array
         for restaurant in restaurants {
             let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+//            annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.coordinate.latitude, longitude: restaurant.coordinate.longitude)
             mapView.addAnnotation(annotation)
         }
 

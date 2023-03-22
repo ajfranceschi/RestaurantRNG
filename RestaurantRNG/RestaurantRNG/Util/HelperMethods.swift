@@ -45,8 +45,14 @@ func getRestaurantsFromYelp(latitude: Double, longitude: Double) {
             }
             
             do {
-                let jsonResponse = try JSONDecoder().decode(RestaurantResponse.self, from: jsonData)
-                print(jsonResponse)
+                let decoder = JSONDecoder()
+                let jsonResponse = try decoder.decode([RestaurantResponse].self, from: jsonData)
+                
+                let businesses = jsonResponse[0].map {Restaurant(from: $0)} //root of business
+                let restaurants = businesses.map {Restaurant(from: $0)}
+                    
+                }
+                
             } catch let error {
                 print("Error Parsing JSON: \(error.localizedDescription)")
             }
