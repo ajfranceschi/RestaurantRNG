@@ -37,10 +37,15 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if locationManager.authorizationStatus == .denied {
+            // Show alert to go to settings with message advising that app doesn't work without location and to enable in settings.
+        }
+        
         locationManager.requestWhenInUseAuthorization()
         
         // set CLLocationManager delegate to self
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         // one-time request for location, must be called after setting delegate
         locationManager.requestLocation()
@@ -116,20 +121,30 @@ class MapViewController: UIViewController {
         }
     }
     
+    @IBAction func didTapProfileButton(_ sender: UIBarButtonItem) {
+        print("Button Pressed")
+    }
+    
 }
 
 //MARK: - CLLocationManager Delegate Methods
 extension MapViewController : CLLocationManagerDelegate {
     
+    // MARK: this function does not get called unless the locationManager.startUpdatingLocation() is called.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            currentLocation = location
             print(currentLocation.coordinate.latitude)
             print(currentLocation.coordinate.longitude)
             DispatchQueue.main.async {
                 // self.updateRestaurants() // will probably just be able to just call this because it will call
                 // updateMapView() itself
 //                self.updateMapView()
+                
+                // Update currentLocation
+                self.currentLocation = location
+                
+                // update region for map to track user's location
+                self.mapView.region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             }
         }
     }
@@ -148,7 +163,7 @@ extension MapViewController : MKMapViewDelegate {
 }
 
 
-// MARK: Get Restaurants from yelp function
+// MARK: Fetch Restaurants
 extension MapViewController {
     func getRestaurantsFromYelp(latitude: Double, longitude: Double){
         guard (latitude >= -90 && latitude <= 90) else {
@@ -161,7 +176,7 @@ extension MapViewController {
             return
         }
         
-        // MARK: Yelp API Test
+        // Fetch restaurants from YelpAPI
         let yelpClient = YLPClient(apiKey: YELP_API_KEY)
         let yelpCoordinate = YLPCoordinate(latitude: latitude, longitude: longitude)
         let yelpQuery = YLPQuery(coordinate: yelpCoordinate)

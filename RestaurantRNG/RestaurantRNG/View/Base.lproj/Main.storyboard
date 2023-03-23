@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eH4-cz-7f4">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4ba-Bw-Rag">
@@ -109,6 +109,10 @@
                                     <constraint firstItem="PNP-Dt-YOc" firstAttribute="top" secondItem="YWO-NI-VDg" secondAttribute="top" id="txM-DG-pUA"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llq-L3-FTr">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.73499614690000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -117,33 +121,43 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YWO-NI-VDg" secondAttribute="bottom" constant="10" id="24g-KL-Pag"/>
                             <constraint firstItem="YWO-NI-VDg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M7v-pZ-8Ec"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4ba-Bw-Rag" secondAttribute="trailing" constant="50" id="Mud-Mf-04V"/>
-                            <constraint firstItem="eH4-cz-7f4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RBw-zk-U1C"/>
+                            <constraint firstItem="llq-L3-FTr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PdM-Yf-QhM"/>
+                            <constraint firstItem="eH4-cz-7f4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RBw-zk-U1C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YWO-NI-VDg" secondAttribute="trailing" constant="50" id="S31-04-a1O"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eH4-cz-7f4" secondAttribute="bottom" id="S35-bk-OCh"/>
+                            <constraint firstAttribute="bottom" secondItem="eH4-cz-7f4" secondAttribute="bottom" id="S35-bk-OCh"/>
+                            <constraint firstItem="llq-L3-FTr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ya1-Z1-vuV"/>
                             <constraint firstItem="4ba-Bw-Rag" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bQe-s8-qKN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eH4-cz-7f4" secondAttribute="trailing" id="ijU-Bz-tpS"/>
                             <constraint firstItem="YWO-NI-VDg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="j1j-sn-ilz"/>
+                            <constraint firstAttribute="trailing" secondItem="llq-L3-FTr" secondAttribute="trailing" id="kae-8q-6QU"/>
                             <constraint firstItem="eH4-cz-7f4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="r7t-XJ-LLA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="llq-L3-FTr" secondAttribute="bottom" id="sx0-e8-c9f"/>
                             <constraint firstItem="4ba-Bw-Rag" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="vS2-Cg-yxS"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="RestaurantRNG" id="9XV-B2-EUb">
                         <barButtonItem key="leftBarButtonItem" title="Preferences" image="gearshape.fill" catalog="system" id="xqi-nk-mtX">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="jbv-mq-ioG" kind="popoverPresentation" popoverAnchorBarButtonItem="xqi-nk-mtX" id="xJw-Bk-Bjs">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Profile" image="person.fill" catalog="system" id="PbB-Vp-sCt"/>
+                        <barButtonItem key="rightBarButtonItem" image="person.crop.circle" catalog="system" id="z2d-k3-pLG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="didTapProfileButton:" destination="BYZ-38-t0r" id="gzm-J2-hAd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="chooseButton" destination="D0D-52-fTD" id="7dZ-K2-Tzg"/>
                         <outlet property="mapView" destination="eH4-cz-7f4" id="mh2-y1-nGk"/>
                         <outlet property="prefsButton" destination="xqi-nk-mtX" id="pSy-62-eIJ"/>
-                        <outlet property="profileButton" destination="PbB-Vp-sCt" id="MNC-gE-Rdf"/>
+                        <outlet property="profileButton" destination="z2d-k3-pLG" id="IYt-MF-JC9"/>
                         <outlet property="radiusLabel" destination="UON-pe-aRy" id="QxN-gu-6bw"/>
                         <outlet property="radiusSlider" destination="Lm2-bO-3NW" id="PI9-TO-Ik2"/>
                         <outlet property="ratingLabel" destination="znV-Sq-2jh" id="YZO-5L-Y6o"/>
@@ -152,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="-332"/>
+            <point key="canvasLocation" x="1017.5572519083969" y="-332.3943661971831"/>
         </scene>
         <!--Restaurant View Controller-->
         <scene sceneID="4Ue-IK-YIi">
@@ -177,9 +191,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tiv-xs-HWI" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rZV-YF-Pfn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="rZV-YF-Pfn">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -197,6 +213,29 @@
                     <view key="view" contentMode="scaleToFill" id="0JH-ng-jj0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6J-ad-x9l">
+                                <rect key="frame" x="100" y="263" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgK-4c-Dpf">
+                                <rect key="frame" x="100" y="223" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOF-fw-H9K">
+                                <rect key="frame" x="100" y="302" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zl4-Mj-QxQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -208,7 +247,7 @@
     </scenes>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
