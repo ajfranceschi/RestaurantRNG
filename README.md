@@ -81,7 +81,7 @@ Our final app idea is an application that allows indecisive users to have a way 
    * Tapping the annotation sends the user over to the restaurant detail screen. This screen contains the information for the restaurant and the option to accept and reroll for a new restaurant.
 
 ## Wireframes
-<img src="https://github.com/CodePath-Capstone-TheBestThatEverLived/RestaurantRNG/blob/wireframe/wireframe.jpg?raw=true" width=600>
+<img src="https://i.postimg.cc/TPjMY5hn/wireframe.jpg" width=600>
 
 ### Models
 * User
