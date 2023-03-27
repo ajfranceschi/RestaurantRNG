@@ -127,6 +127,25 @@ class MapViewController: UIViewController {
     
     @IBAction func didTapProfileButton(_ sender: UIBarButtonItem) {
         print("Button Pressed")
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Pass data to RestaurantViewController
+        if segue.identifier == "ChooseForMeSegue" {
+            print("ChooseForMe tapped")
+            
+            // Pass data
+            if let restaurantViewController = segue.destination as? RestaurantViewController {
+                // Choose random restaurant
+                let randomRestaurant = self.restaurants.randomElement()
+                
+                print("Random restaurant chosen:")
+                randomRestaurant?.toString()
+                restaurantViewController.restaurant = randomRestaurant
+            }
+        }
     }
     
 }
