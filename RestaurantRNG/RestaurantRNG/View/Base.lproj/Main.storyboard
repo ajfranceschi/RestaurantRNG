@@ -99,7 +99,9 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Choose For Me!"/>
                                         <connections>
-                                            <segue destination="9j8-OT-PWb" kind="show" id="mkB-aI-pyi"/>
+                                            <segue destination="9j8-OT-PWb" kind="popoverPresentation" popoverAnchorView="D0D-52-fTD" id="6L3-QX-juL">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -173,60 +175,85 @@
             <objects>
                 <viewController id="9j8-OT-PWb" customClass="RestaurantViewController" customModule="RestaurantRNG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nzb-dM-ACS">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-25-VkD">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-25-VkD">
+                                <rect key="frame" x="0.0" y="59" width="393" height="704"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xOD-If-S2Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="366"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="Vuu-zT-rx8"/>
+                                        </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8nl-dh-ak1">
-                                        <rect key="frame" x="0.0" y="366" width="393" height="300"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8nl-dh-ak1">
+                                        <rect key="frame" x="0.0" y="260" width="393" height="394"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13q-LK-4MB">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="65.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantRatingLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbX-Tp-pTM">
-                                                <rect key="frame" x="0.0" y="20.333333333333314" width="393" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="65.666666666666686" width="393" height="65.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantPriceLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NU-0l-ZwN">
-                                                <rect key="frame" x="0.0" y="40.666666666666686" width="393" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="131.33333333333331" width="393" height="65.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurauntPhoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDL-hy-i2S">
-                                                <rect key="frame" x="0.0" y="61.000000000000007" width="393" height="20.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="197" width="393" height="65.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="restaurantAddressLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-NN-FjO">
-                                                <rect key="frame" x="0.0" y="81.333333333333385" width="393" height="198.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="262.66666666666663" width="393" height="65.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantLinkLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEz-Vs-3qk">
-                                                <rect key="frame" x="0.0" y="279.66666666666663" width="393" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="328.33333333333337" width="393" height="65.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="jEz-Vs-3qk" firstAttribute="top" secondItem="Gqd-NN-FjO" secondAttribute="bottom" id="bdl-AD-qOD"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hEA-3f-Hb6">
+                                        <rect key="frame" x="0.0" y="664" width="393" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeV-o1-rPg">
+                                                <rect key="frame" x="0.0" y="0.0" width="191.66666666666666" height="40"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Accept">
+                                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2q-u1-MWd">
+                                                <rect key="frame" x="201.66666666666663" y="0.0" width="191.33333333333337" height="40"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Reject">
+                                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="j76-c7-iKw"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="xOD-If-S2Y" secondAttribute="bottom" constant="300" id="wKi-WM-5Hi"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zh3-nJ-J24"/>
@@ -234,7 +261,7 @@
                         <constraints>
                             <constraint firstItem="wGQ-25-VkD" firstAttribute="leading" secondItem="Zh3-nJ-J24" secondAttribute="leading" id="AZk-1c-Tqg"/>
                             <constraint firstItem="wGQ-25-VkD" firstAttribute="top" secondItem="Zh3-nJ-J24" secondAttribute="top" id="K2L-sZ-q5m"/>
-                            <constraint firstItem="Zh3-nJ-J24" firstAttribute="bottom" secondItem="wGQ-25-VkD" secondAttribute="bottom" id="qC7-69-Blw"/>
+                            <constraint firstItem="Zh3-nJ-J24" firstAttribute="bottom" secondItem="wGQ-25-VkD" secondAttribute="bottom" constant="20" id="ZNK-lm-1fx"/>
                             <constraint firstItem="Zh3-nJ-J24" firstAttribute="trailing" secondItem="wGQ-25-VkD" secondAttribute="trailing" id="wbB-QK-qwY"/>
                         </constraints>
                     </view>
@@ -242,6 +269,8 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="haq-jZ-BOP"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="acceptButton" destination="yeV-o1-rPg" id="0Z6-kn-Blx"/>
+                        <outlet property="rejectButton" destination="r2q-u1-MWd" id="fHU-nT-f4F"/>
                         <outlet property="restaurantAddressLabel" destination="Gqd-NN-FjO" id="gBy-Wc-sHP"/>
                         <outlet property="restaurantImageView" destination="xOD-If-S2Y" id="Pi6-dL-YAc"/>
                         <outlet property="restaurantLinkLabel" destination="jEz-Vs-3qk" id="wEm-Z6-YGX"/>
@@ -253,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bA4-cI-7Ma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="-2"/>
+            <point key="canvasLocation" x="1971.7557251908397" y="-2.1126760563380285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FQm-5k-7eK">
@@ -457,6 +486,12 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

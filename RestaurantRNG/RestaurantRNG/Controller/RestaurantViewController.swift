@@ -9,6 +9,8 @@ import UIKit
 import Nuke
 class RestaurantViewController: UIViewController {
 
+    @IBOutlet weak var rejectButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var restaurantLinkLabel: UILabel!
     @IBOutlet weak var restaurantAddressLabel: UILabel!
