@@ -16,6 +16,9 @@ class SettingsViewController: UIViewController {
     }
     
 
+    @IBAction func didPressBackButton(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
     /*
     // MARK: - Navigation
 
