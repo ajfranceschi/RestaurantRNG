@@ -175,12 +175,81 @@
                     <view key="view" contentMode="scaleToFill" id="Nzb-dM-ACS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-25-VkD">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xOD-If-S2Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="366"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8nl-dh-ak1">
+                                        <rect key="frame" x="0.0" y="366" width="393" height="300"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13q-LK-4MB">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantRatingLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbX-Tp-pTM">
+                                                <rect key="frame" x="0.0" y="20.333333333333314" width="393" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantPriceLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NU-0l-ZwN">
+                                                <rect key="frame" x="0.0" y="40.666666666666686" width="393" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurauntPhoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDL-hy-i2S">
+                                                <rect key="frame" x="0.0" y="61.000000000000007" width="393" height="20.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="restaurantAddressLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-NN-FjO">
+                                                <rect key="frame" x="0.0" y="81.333333333333385" width="393" height="198.33333333333337"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantLinkLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEz-Vs-3qk">
+                                                <rect key="frame" x="0.0" y="279.66666666666663" width="393" height="20.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xOD-If-S2Y" secondAttribute="bottom" constant="300" id="wKi-WM-5Hi"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Zh3-nJ-J24"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wGQ-25-VkD" firstAttribute="leading" secondItem="Zh3-nJ-J24" secondAttribute="leading" id="AZk-1c-Tqg"/>
+                            <constraint firstItem="wGQ-25-VkD" firstAttribute="top" secondItem="Zh3-nJ-J24" secondAttribute="top" id="K2L-sZ-q5m"/>
+                            <constraint firstItem="Zh3-nJ-J24" firstAttribute="bottom" secondItem="wGQ-25-VkD" secondAttribute="bottom" id="qC7-69-Blw"/>
+                            <constraint firstItem="Zh3-nJ-J24" firstAttribute="trailing" secondItem="wGQ-25-VkD" secondAttribute="trailing" id="wbB-QK-qwY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T62-xK-a9g">
                         <barButtonItem key="backBarButtonItem" title=" " id="haq-jZ-BOP"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="restaurantAddressLabel" destination="Gqd-NN-FjO" id="gBy-Wc-sHP"/>
+                        <outlet property="restaurantImageView" destination="xOD-If-S2Y" id="Pi6-dL-YAc"/>
+                        <outlet property="restaurantLinkLabel" destination="jEz-Vs-3qk" id="wEm-Z6-YGX"/>
+                        <outlet property="restaurantNameLabel" destination="13q-LK-4MB" id="Mc3-Lh-EIc"/>
+                        <outlet property="restaurantPriceLabel" destination="0NU-0l-ZwN" id="l7b-pj-r68"/>
+                        <outlet property="restaurantRatingLabel" destination="kbX-Tp-pTM" id="ELx-wI-PvU"/>
+                        <outlet property="restuarantPhoneNumber" destination="mDL-hy-i2S" id="atd-gb-IgN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bA4-cI-7Ma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
