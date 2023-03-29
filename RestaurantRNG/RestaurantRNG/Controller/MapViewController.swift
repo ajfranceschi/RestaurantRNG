@@ -59,6 +59,7 @@ class MapViewController: UIViewController {
         // Remove default POIs
         let mapConfiguration = MKStandardMapConfiguration()
         mapConfiguration.pointOfInterestFilter = MKPointOfInterestFilter.excludingAll
+        mapView.isUserInteractionEnabled = false // disable interaction with map
         mapView.preferredConfiguration = mapConfiguration
         
         
@@ -79,9 +80,12 @@ class MapViewController: UIViewController {
         // "for each" loop that effectively adds a pin/annotation for each restaurant in array
         if restaurants.count != 0 {
             for restaurant in restaurants {
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
-                mapView.addAnnotation(annotation)
+                if (!restaurant.is_closed) {
+                    let annotation = MKPointAnnotation()
+                    annotation.title = restaurant.price
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+                    mapView.addAnnotation(annotation)
+                }
             }
         }
     }
@@ -218,9 +222,9 @@ extension MapViewController {
             }
             
             self.restaurants = tempRestaurants
-            for restaurant in self.restaurants {
-                restaurant.toString()
-            }
+//            for restaurant in self.restaurants {
+//                restaurant.toString()
+//            }
         }
         
         
