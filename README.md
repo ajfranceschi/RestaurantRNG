@@ -3,7 +3,7 @@
 ## Table of Contents
 1. [Overview](#Overview)
 2. [Product Spec](#Product-Spec)
-3. [Updated Course Portal group info: Group Name + App Description](#Updated-Course-Portal-group-info:-Group-Name-+-App-Description)
+3. [Updated Course Portal group info: Group Name + App Description](#Updated-Course-Portal-group-info)
 4. [Initial Brainstorming Ideas](#Initial-Brainstorming-Ideas)
 5. [Evaluation of Top 3 Ideas](#Evaluation-of-Top-3-Ideas)
 6. [Final App Idea Chosen](#Final-app-idea-chosen)
@@ -14,7 +14,7 @@
 ### Description
 RestaurantRNG is designed to remove the stress involved when deciding what to eat. No longer will users have to spend hours deciding where their next meal will come from.  Just press a button and RestaurantRNG will tell you what restaurant to feast at.
 
-## Updated Course Portal group info: Group Name + App Description
+## Updated Course Portal group info:
 Group Name: TheBestThatEverLived
 App Description and Final App Idea Chosen:
 Our final app idea is an application that allows indecisive users to have a way of picking food places to eat at a selected price tag. This will be done by having the user click a button that will randomly select a restaurant and allow the user to either accept or reroll the restaurant they are given. 
