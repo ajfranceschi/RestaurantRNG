@@ -24,16 +24,22 @@ class RestaurantViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        Nuke.loadImage(with: restaurant.image_url!, into: restaurantImageView)
+        
+        if let restaurantUrl = restaurant.image_url{
+            Nuke.loadImage(with: restaurantUrl, into: restaurantImageView)
+        }
         restaurantNameLabel.text = restaurant.name
-        let text:String = String(format: "%f", restaurant.rating)
-        restaurantRatingLabel.text = text
+        restaurantRatingLabel.text = String(format: "%.1f", restaurant.rating)
         restaurantAddressLabel.text = restaurant.streetAddress1
         restuarantPhoneNumber.text = restaurant.display_phone
         restaurantPriceLabel.text = restaurant.price
+        restaurantLinkLabel.text =  String(describing: restaurant.url)
     }
     
-
+    @IBAction func didTapButtonBack(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -43,5 +49,5 @@ class RestaurantViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
