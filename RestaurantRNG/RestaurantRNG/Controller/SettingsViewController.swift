@@ -14,36 +14,78 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    var distance: Float = 5.0
+    var rating: Float = 0.0
+    var price: Int = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        distanceSlider.setValue(distance, animated: true)
+        distanceLabel.text = String(format: "%.1f mi", distance)
+        
+        ratingSlider.setValue(rating, animated: true)
+        ratingLabel.text = String(format: "%.1f", rating)
+        
+        priceSlider.setValue(Float(price), animated: true)
+        priceLabel.text = String(repeating: "$", count: price)
+        
+        
     }
     
     @IBAction func didChangeDistanceSliderValue(_ sender: UISlider) {
+        distanceLabel.text = String(format: "%.1f mi", sender.value)
+        distance = (String(format: "%.1f", sender.value) as NSString).floatValue
         
+        // enable save btn
+        saveButton.isEnabled = true
     }
     
     
     @IBAction func didChangeRatingSliderValue(_ sender: UISlider) {
+        ratingLabel.text = String(format: "%.1f", sender.value)
+        rating = (String(format: "%.1f", sender.value) as NSString).floatValue
+        
+        // enable save btn
+        saveButton.isEnabled = true
     }
     
     @IBAction func didChangePriceSliderValue(_ sender: UISlider) {
+        price = Int(floor(sender.value))
+        let priceString = String(repeating: "$", count: price)
+        
+        priceLabel.text = priceString
+        
+        saveButton.isEnabled = true
     }
     
     
     @IBAction func didPressBackButton(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func didPressCancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true)
     }
-    */
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("performing SettingsVC Segue")
+        let mapViewVC = segue.destination as? MapViewController
+        
+        if let mapViewVC = mapViewVC {
+            mapViewVC.distance = Double(distance)
+            mapViewVC.rating = Double(rating)
+            mapViewVC.price = price
+        }
+    }
 
 }
