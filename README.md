@@ -87,6 +87,9 @@ Our final app idea is an application that allows indecisive users to have a way 
 ## Wireframes
 <img src="https://i.postimg.cc/TPjMY5hn/wireframe.jpg" width=600>
 
+## MVP Walkthrough
+<img src ="https://github.com/CodePath-Capstone-TheBestThatEverLived/RestaurantRNG/blob/main/RestaurantRNG/RestaurantRNG/Assets.xcassets/demoMVP.dataset/demoMVP.gif?raw=true">
+
 ### Models
 * User
 * Restaurant
