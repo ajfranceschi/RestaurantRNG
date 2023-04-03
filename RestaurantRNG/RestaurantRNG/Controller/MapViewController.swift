@@ -24,7 +24,7 @@ class MapViewController: UIViewController {
     // store data from the settings VC
     var distance = 5.0
     var rating = 0.0
-    var price = 1
+    var price = 5
         
     var restaurants = [Restaurant]() {
         didSet {
@@ -112,6 +112,12 @@ class MapViewController: UIViewController {
                 print("Random restaurant chosen:")
                 randomRestaurant?.toString()
                 restaurantViewController.restaurant = randomRestaurant
+            }
+        } else if segue.identifier == "SettingsSegue" {
+            if let settingsVC = segue.destination as? SettingsViewController {
+                settingsVC.distance = Float(distance)
+                settingsVC.rating = Float(rating)
+                settingsVC.price = price
             }
         }
     }

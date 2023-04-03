@@ -68,7 +68,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Preferences" image="gearshape.fill" catalog="system" id="xqi-nk-mtX">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="jbv-mq-ioG" kind="popoverPresentation" identifier="settingsSegue" popoverAnchorBarButtonItem="xqi-nk-mtX" id="D3w-J5-mKj">
+                                <segue destination="jbv-mq-ioG" kind="popoverPresentation" identifier="SettingsSegue" popoverAnchorBarButtonItem="xqi-nk-mtX" id="D3w-J5-mKj">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>

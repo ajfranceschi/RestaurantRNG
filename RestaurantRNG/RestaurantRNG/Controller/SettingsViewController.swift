@@ -25,7 +25,15 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        distanceSlider.setValue(distance, animated: true)
+        distanceLabel.text = String(format: "%.1f mi", distance)
+        
         ratingSlider.setValue(rating, animated: true)
+        ratingLabel.text = String(format: "%.1f", rating)
+        
+        priceSlider.setValue(Float(price), animated: true)
+        priceLabel.text = String(repeating: "$", count: price)
+        
         
     }
     
@@ -48,10 +56,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func didChangePriceSliderValue(_ sender: UISlider) {
         price = Int(floor(sender.value))
-        var priceString = ""
-        for _ in 1...price {
-            priceString = priceString + "$"
-        }
+        let priceString = String(repeating: "$", count: price)
         
         priceLabel.text = priceString
         
