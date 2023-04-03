@@ -12,11 +12,6 @@ import YelpAPI
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var radiusSlider: UISlider!
-    @IBOutlet weak var ratingSlider: UISlider!
-    
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var radiusLabel: UILabel!
     
     @IBOutlet weak var chooseButton: UIButton!
     @IBOutlet weak var profileButton: UIBarButtonItem!
@@ -26,10 +21,15 @@ class MapViewController: UIViewController {
     // set current location to FIU campus until updated by device location
     private var currentLocation : CLLocation = CLLocation(latitude: 25.7562, longitude: -80.3755)
     
+    // store data from the settings VC
+    var distance = 5.0
+    var rating = 0.0
+    var price = 5
+        
     var restaurants = [Restaurant]() {
         didSet {
             DispatchQueue.main.async {
-                self.updateMapView()
+                self.updateMapView(self.distance, self.distance)
             }
         }
     }
@@ -37,114 +37,119 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if locationManager.authorizationStatus == .denied {
-            // Show alert to go to settings with message advising that app doesn't work without location and to enable in settings.
-        }
-        
         locationManager.requestWhenInUseAuthorization()
         
-        // set CLLocationManager delegate to self
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        if locationManager.authorizationStatus == .denied {
+            // TODO: Show alert to go to settings with message advising that app doesn't work without location and to enable in settings.
+        } else {
+            
+            // set CLLocationManager delegate to self
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            
+            // one-time request for location, must be called after setting delegate
+            locationManager.requestLocation()
+        }
         
-        // one-time request for location, must be called after setting delegate
-        locationManager.requestLocation()
-
         // set mapView delegate to self
         mapView.delegate = self
-        
-        // UI candy
-        mapView.layer.cornerRadius = 12
         
         // Remove default POIs
         let mapConfiguration = MKStandardMapConfiguration()
         mapConfiguration.pointOfInterestFilter = MKPointOfInterestFilter.excludingAll
+        mapView.isUserInteractionEnabled = false // disable interaction with map
         mapView.preferredConfiguration = mapConfiguration
-        
-        
-        DispatchQueue.main.async {
-            self.updateMapView()
-            self.updateRestaurants()
-        }
+  
     }
     
-    private func updateMapView() {
+    private func updateMapView(_ latitudeDelta: Double = 0.05, _ longitudeDelta: Double = 0.05) {
         
         // set mapView's region based on coordinates
         // span represents "zoom level", where a small value is more zoomed in
         // this should eventually be adjusted based on search radius selected by user
-        let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: latitudeDelta/69, longitudeDelta: longitudeDelta/69)) // each CLLocationDegree used in MKCoordinateRegion represents 69 miles
         mapView.setRegion(region, animated: false)
-                
+        
         // "for each" loop that effectively adds a pin/annotation for each restaurant in array
         if restaurants.count != 0 {
             for restaurant in restaurants {
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
-                mapView.addAnnotation(annotation)
+                if (!restaurant.is_closed) {
+                    let annotation = MKPointAnnotation()
+                    annotation.title = restaurant.price
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+                    mapView.addAnnotation(annotation)
+                }
             }
+            
+            chooseButton.isEnabled = true
         }
     }
     
     private func updateRestaurants() {
         
-        // this is probably where we should trigger API to retrieve data,
-        // then update UI elements after successful pull
-        
         // MARK: Declare a constant named YELP_API_KEY in /RestaurantRNG/Env/EnvVars.swift (must create structure for your project)
-        // Get restaurants on a 1 mile radius from user location
+
         let latitude = currentLocation.coordinate.latitude
         let longitude = currentLocation.coordinate.longitude
-        getRestaurantsFromYelp(latitude: latitude, longitude: longitude)
-       
+        getRestaurantsFromYelp(currentLatitude: latitude, currentLongitude: longitude)
     }
     
-    
-    
-
-    @IBAction func ratingSliderUpdated(_ sender: UISlider) {
-        let newRating = Int(round(ratingSlider.value))
-        
-        DispatchQueue.main.async {
-            self.ratingLabel.text = "\(newRating) Stars"
-        }
-    }
-    
-    
-    @IBAction func radiusSliderUpdated(_ sender: UISlider) {
-        let formattedRadius = String(format: "%.1f mi", radiusSlider.value)
-        DispatchQueue.main.async {
-            self.radiusLabel.text = formattedRadius
-            
-            // should eventually change region shown on map and updateMapView()
-            // TODO: This should be added to the settings VC
-        }
-    }
     
     @IBAction func didTapProfileButton(_ sender: UIBarButtonItem) {
         print("Button Pressed")
+        
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Pass data to RestaurantViewController
+        if segue.identifier == "ChooseForMeSegue" {
+            print("ChooseForMe tapped")
+            
+            // Pass data
+            if let restaurantViewController = segue.destination as? RestaurantViewController {
+                // Choose random restaurant
+                let randomRestaurant = self.restaurants.randomElement()
+                
+                print("Random restaurant chosen:")
+                randomRestaurant?.toString()
+                restaurantViewController.restaurant = randomRestaurant
+            }
+        } else if segue.identifier == "SettingsSegue" {
+            if let settingsVC = segue.destination as? SettingsViewController {
+                settingsVC.distance = Float(distance)
+                settingsVC.rating = Float(rating)
+                settingsVC.price = price
+            }
+        }
+    }
+    
+    @IBAction func unwindMapViewVC(segue: UIStoryboardSegue) {
+        if let settingsVC = segue.source as? SettingsViewController {
+            getRestaurantsFromYelp(
+                currentLatitude: currentLocation.coordinate.latitude,
+                currentLongitude: currentLocation.coordinate.longitude,
+                distance: Double(settingsVC.distance),
+                rating: Double(settingsVC.rating),
+                price: settingsVC.price
+            )
+        }
+    }
 }
 
 //MARK: - CLLocationManager Delegate Methods
 extension MapViewController : CLLocationManagerDelegate {
-    
-    // MARK: this function does not get called unless the locationManager.startUpdatingLocation() is called.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             print(currentLocation.coordinate.latitude)
             print(currentLocation.coordinate.longitude)
             DispatchQueue.main.async {
-                // self.updateRestaurants() // will probably just be able to just call this because it will call
-                // updateMapView() itself
-//                self.updateMapView()
                 
-                // Update currentLocation
                 self.currentLocation = location
                 
                 // update region for map to track user's location
-                self.mapView.region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                self.mapView.region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+                self.updateRestaurants()
             }
         }
     }
@@ -165,7 +170,8 @@ extension MapViewController : MKMapViewDelegate {
 
 // MARK: Fetch Restaurants
 extension MapViewController {
-    func getRestaurantsFromYelp(latitude: Double, longitude: Double){
+    func getRestaurantsFromYelp(currentLatitude latitude: Double, currentLongitude longitude: Double, distance: Double = 0, rating: Double = 0, price: Int = 5) {
+
         guard (latitude >= -90 && latitude <= 90) else {
             print("latitude must be between -90 and 90")
             return
@@ -181,10 +187,10 @@ extension MapViewController {
         let yelpCoordinate = YLPCoordinate(latitude: latitude, longitude: longitude)
         let yelpQuery = YLPQuery(coordinate: yelpCoordinate)
         yelpQuery.categoryFilter = ["restaurants"]
-        yelpQuery.radiusFilter = Double(1600 * radiusSlider.value)
-        yelpQuery.limit = 20
+        yelpQuery.radiusFilter = floor(Double(1600 * distance))
+        yelpQuery.limit = 30
         var tempRestaurants = [Restaurant]()
-
+        
         
         yelpClient.search(with: yelpQuery) { search, error in
             if let error = error {
@@ -196,6 +202,15 @@ extension MapViewController {
                         if business.location.address.count > 1 {
                             stAddress2 = business.location.address[1]
                         }
+                        
+                        if business.price.count > price {
+                            continue
+                        }
+                        
+                        if business.rating < rating {
+                            continue
+                        }
+                        
                         tempRestaurants.append(Restaurant(
                             name: business.name,
                             image_url: business.imageURL,
@@ -218,12 +233,16 @@ extension MapViewController {
             }
             
             self.restaurants = tempRestaurants
-            for restaurant in self.restaurants {
-                restaurant.toString()
-            }
         }
         
         
     }
 }
 
+
+// MARK: ALERTS
+extension MapViewController {
+    func showAlert() {
+        
+    }
+}
