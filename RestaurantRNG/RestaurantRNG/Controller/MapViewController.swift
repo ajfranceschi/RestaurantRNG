@@ -80,6 +80,8 @@ class MapViewController: UIViewController {
                     mapView.addAnnotation(annotation)
                 }
             }
+            
+            chooseButton.isEnabled = true
         }
     }
     

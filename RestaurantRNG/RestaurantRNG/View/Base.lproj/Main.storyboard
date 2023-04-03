@@ -25,8 +25,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YWO-NI-VDg">
                                 <rect key="frame" x="50" y="709" width="293" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0D-52-fTD">
-                                        <rect key="frame" x="74.333333333333329" y="0.0" width="144.66666666666669" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0D-52-fTD">
+                                        <rect key="frame" x="74.333333333333314" y="0.0" width="144.66666666666669" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="WoP-b5-zVA"/>
                                             <constraint firstAttribute="height" constant="50" id="iSR-so-niq"/>
@@ -73,7 +73,7 @@
                                 </segue>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="person.crop.circle" catalog="system" id="z2d-k3-pLG">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="person.crop.circle" catalog="system" id="z2d-k3-pLG">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="didTapProfileButton:" destination="BYZ-38-t0r" id="gzm-J2-hAd"/>
@@ -100,79 +100,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-25-VkD">
-                                <rect key="frame" x="0.0" y="103" width="393" height="719"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-25-VkD" userLabel="Root Stack View">
+                                <rect key="frame" x="0.0" y="103" width="393" height="598"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xOD-If-S2Y">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xOD-If-S2Y">
                                         <rect key="frame" x="0.0" y="1.6666666666666572" width="393" height="247"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="250" id="Vuu-zT-rx8"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8nl-dh-ak1">
-                                        <rect key="frame" x="0.0" y="370" width="393" height="189"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8nl-dh-ak1" userLabel="Labels Stack View">
+                                        <rect key="frame" x="0.0" y="270" width="393" height="328"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13q-LK-4MB">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="31.666666666666668"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="111.66666666666669" y="0.0" width="170" height="40"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantRatingLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbX-Tp-pTM">
-                                                <rect key="frame" x="0.0" y="31.666666666666686" width="393" height="31.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="111.66666666666667" y="48" width="169.66666666666663" height="40"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantPriceLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NU-0l-ZwN">
-                                                <rect key="frame" x="0.0" y="62.999999999999993" width="393" height="31.666666666666664"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="117.66666666666669" y="96" width="158" height="40"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurauntPhoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDL-hy-i2S">
-                                                <rect key="frame" x="0.0" y="94.666666666666629" width="393" height="31.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="95.666666666666686" y="144" width="202" height="40"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="restaurantAddressLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-NN-FjO">
-                                                <rect key="frame" x="0.0" y="126.00000000000001" width="393" height="31.666666666666671"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="104.33333333333333" y="192" width="184.66666666666669" height="40"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantLinkLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEz-Vs-3qk">
-                                                <rect key="frame" x="0.0" y="157.66666666666663" width="393" height="31.333333333333343"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1as-of-UCL">
+                                                <rect key="frame" x="134.33333333333334" y="240" width="124.66666666666666" height="40"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Open in Yelp">
+                                                    <fontDescription key="titleFontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="didTapRestaurantLink:" destination="9j8-OT-PWb" eventType="touchUpInside" id="i5T-jV-86B"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hEA-3f-Hb6" userLabel="Buttons Stack View">
+                                                <rect key="frame" x="40" y="288" width="313" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeV-o1-rPg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="146.66666666666666" height="40"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Accept">
+                                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2q-u1-MWd">
+                                                        <rect key="frame" x="166.66666666666663" y="0.0" width="146.33333333333337" height="40"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Reject">
+                                                            <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="j76-c7-iKw"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="jEz-Vs-3qk" firstAttribute="top" secondItem="Gqd-NN-FjO" secondAttribute="bottom" id="bdl-AD-qOD"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hEA-3f-Hb6">
-                                        <rect key="frame" x="0.0" y="679" width="393" height="40"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeV-o1-rPg">
-                                                <rect key="frame" x="0.0" y="0.0" width="191.66666666666666" height="40"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Accept">
-                                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2q-u1-MWd">
-                                                <rect key="frame" x="201.66666666666663" y="0.0" width="191.33333333333337" height="40"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Reject">
-                                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="j76-c7-iKw"/>
+                                            <constraint firstAttribute="trailing" secondItem="hEA-3f-Hb6" secondAttribute="trailing" constant="40" id="EFF-wY-eFP"/>
+                                            <constraint firstItem="hEA-3f-Hb6" firstAttribute="leading" secondItem="8nl-dh-ak1" secondAttribute="leading" constant="40" id="wr7-Pp-fcD"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -215,7 +220,6 @@
                             <constraint firstItem="wGQ-25-VkD" firstAttribute="leading" secondItem="Zh3-nJ-J24" secondAttribute="leading" id="AZk-1c-Tqg"/>
                             <constraint firstItem="XVW-Ml-VoD" firstAttribute="top" secondItem="Nzb-dM-ACS" secondAttribute="top" id="BFd-8x-53r"/>
                             <constraint firstItem="wGQ-25-VkD" firstAttribute="top" secondItem="XVW-Ml-VoD" secondAttribute="bottom" id="LhN-Xs-e8u"/>
-                            <constraint firstItem="Zh3-nJ-J24" firstAttribute="bottom" secondItem="wGQ-25-VkD" secondAttribute="bottom" constant="20" id="ZNK-lm-1fx"/>
                             <constraint firstItem="XVW-Ml-VoD" firstAttribute="leading" secondItem="Zh3-nJ-J24" secondAttribute="leading" id="fUU-uk-0z3"/>
                             <constraint firstItem="XVW-Ml-VoD" firstAttribute="trailing" secondItem="Zh3-nJ-J24" secondAttribute="trailing" id="psh-FX-ujE"/>
                             <constraint firstItem="Zh3-nJ-J24" firstAttribute="trailing" secondItem="wGQ-25-VkD" secondAttribute="trailing" id="wbB-QK-qwY"/>
@@ -229,7 +233,7 @@
                         <outlet property="rejectButton" destination="r2q-u1-MWd" id="fHU-nT-f4F"/>
                         <outlet property="restaurantAddressLabel" destination="Gqd-NN-FjO" id="gBy-Wc-sHP"/>
                         <outlet property="restaurantImageView" destination="xOD-If-S2Y" id="Pi6-dL-YAc"/>
-                        <outlet property="restaurantLinkLabel" destination="jEz-Vs-3qk" id="wEm-Z6-YGX"/>
+                        <outlet property="restaurantLinkButton" destination="1as-of-UCL" id="Cjg-DI-hC7"/>
                         <outlet property="restaurantNameLabel" destination="13q-LK-4MB" id="Mc3-Lh-EIc"/>
                         <outlet property="restaurantPriceLabel" destination="0NU-0l-ZwN" id="l7b-pj-r68"/>
                         <outlet property="restaurantRatingLabel" destination="kbX-Tp-pTM" id="ELx-wI-PvU"/>
