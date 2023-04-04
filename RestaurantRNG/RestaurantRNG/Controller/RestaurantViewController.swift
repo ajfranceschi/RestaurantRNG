@@ -38,7 +38,6 @@ class RestaurantViewController: UIViewController {
         restaurantAddressLabel.text = restaurant.streetAddress1
         restuarantPhoneNumber.text = restaurant.display_phone?.applyPatternOnNumbers(pattern: "+# (###) ###-####", replacementCharacter: "#")
         restaurantPriceLabel.text = restaurant.price
-        
         safariSvc = SFSafariViewController(url: restaurant.url)
     }
     
