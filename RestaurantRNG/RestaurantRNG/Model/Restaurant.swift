@@ -28,6 +28,7 @@ struct Restaurant {
     let city : String
     let country: String
     let state: String
+    var annotation: MKAnnotation?
     
     func toString() {
         print("Name: \(name)")

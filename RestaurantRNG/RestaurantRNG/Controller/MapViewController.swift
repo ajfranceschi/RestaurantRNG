@@ -124,6 +124,7 @@ class MapViewController: UIViewController {
         }
     }
     
+    // function called when VCs exit
     @IBAction func unwindMapViewVC(segue: UIStoryboardSegue) {
         if let settingsVC = segue.source as? SettingsViewController {
             getRestaurantsFromYelp(
@@ -133,6 +134,23 @@ class MapViewController: UIViewController {
                 rating: Double(settingsVC.rating),
                 price: settingsVC.price
             )
+        } else if let restaurantVC = segue.source as? RestaurantViewController {
+            if restaurants.count > 1 {
+                for index in 0..<restaurants.count {
+                    if restaurants[index].name == restaurantVC.restaurant.name {
+                        restaurants.remove(at: index)
+                        break
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.updateMapView(self.distance, self.distance)
+                }
+            } else {
+                // MARK: USER REJECTED ALL OPTIONS
+                // you removed all your options, would you like to expand the radius
+            }
+            
         }
     }
 }
@@ -188,7 +206,7 @@ extension MapViewController {
         let yelpQuery = YLPQuery(coordinate: yelpCoordinate)
         yelpQuery.categoryFilter = ["restaurants"]
         yelpQuery.radiusFilter = floor(Double(1600 * distance))
-        yelpQuery.limit = 30
+        yelpQuery.limit = 50
         var tempRestaurants = [Restaurant]()
         
         

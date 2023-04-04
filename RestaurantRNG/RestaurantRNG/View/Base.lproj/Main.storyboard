@@ -26,7 +26,7 @@
                                 <rect key="frame" x="50" y="709" width="293" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0D-52-fTD">
-                                        <rect key="frame" x="74.333333333333314" y="0.0" width="144.66666666666669" height="50"/>
+                                        <rect key="frame" x="74.333333333333329" y="0.0" width="144.66666666666669" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="WoP-b5-zVA"/>
                                             <constraint firstAttribute="height" constant="50" id="iSR-so-niq"/>
@@ -168,6 +168,10 @@
                                                         <buttonConfiguration key="configuration" style="filled" title="Reject">
                                                             <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="didTapRejectButton:" destination="9j8-OT-PWb" eventType="touchUpInside" id="jRa-VA-BGl"/>
+                                                            <segue destination="tNT-wp-9hE" kind="unwind" unwindAction="unwindMapViewVCWithSegue:" id="iIi-6w-wg7"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -191,25 +195,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNJ-wo-rmu">
-                                        <rect key="frame" x="8.0000000000000036" y="65.666666666666671" width="49.333333333333343" height="34.333333333333329"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system">
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="didPressBackButton:" destination="jbv-mq-ioG" eventType="touchUpInside" id="Ce9-Iw-GSJ"/>
-                                            <action selector="didTapButtonBack:" destination="9j8-OT-PWb" eventType="touchUpInside" id="6la-As-1tE"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.73499614690000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="QG9-oN-771" firstAttribute="centerX" secondItem="XVW-Ml-VoD" secondAttribute="centerX" id="7K9-tR-IDO"/>
-                                    <constraint firstAttribute="bottom" secondItem="wNJ-wo-rmu" secondAttribute="bottom" constant="3" id="Bsf-7i-VMb"/>
-                                    <constraint firstItem="QG9-oN-771" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wNJ-wo-rmu" secondAttribute="trailing" constant="8" symbolic="YES" id="O0E-5h-4yZ"/>
                                     <constraint firstAttribute="bottom" secondItem="QG9-oN-771" secondAttribute="bottom" constant="8" id="lWA-te-BsJ"/>
-                                    <constraint firstItem="wNJ-wo-rmu" firstAttribute="leading" secondItem="XVW-Ml-VoD" secondAttribute="leading" constant="8" id="pVe-8u-6oK"/>
                                     <constraint firstAttribute="height" constant="103" id="uRf-HJ-2UF"/>
                                 </constraints>
                             </view>
@@ -241,6 +231,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bA4-cI-7Ma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="tNT-wp-9hE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1971.7557251908397" y="-2.1126760563380285"/>
         </scene>

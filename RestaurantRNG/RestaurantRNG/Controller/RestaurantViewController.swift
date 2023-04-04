@@ -41,16 +41,16 @@ class RestaurantViewController: UIViewController {
         safariSvc = SFSafariViewController(url: restaurant.url)
     }
     
-    @IBAction func didTapButtonBack(_ sender: UIButton) {
-        self.dismiss(animated: true)
-    }
-    
     @IBAction func didTapRestaurantLink(_ sender: UIButton) {
         print("Tapped")
         if let safariSvc = safariSvc {
             safariSvc.modalPresentationStyle = .popover
             present(safariSvc, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func didTapRejectButton(_ sender: UIButton) {
+        self.dismiss(animated: true)
     }
     
 }
