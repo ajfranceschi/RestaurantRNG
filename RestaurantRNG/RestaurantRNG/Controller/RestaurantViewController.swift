@@ -8,7 +8,8 @@
 import UIKit
 import Nuke
 import SafariServices
-
+import CoreLocation
+import MapKit
 class RestaurantViewController: UIViewController {
     
     @IBOutlet weak var rejectButton: UIButton!
@@ -51,6 +52,26 @@ class RestaurantViewController: UIViewController {
     
     @IBAction func didTapRejectButton(_ sender: UIButton) {
         self.dismiss(animated: true)
+    }
+    @IBAction func didTapAcceptButton(_ sender: UIButton) {
+        openMapForPlace()
+    }
+    func openMapForPlace() {
+        
+        let latitude:CLLocationDegrees =  restaurant.latitude
+        let longitude:CLLocationDegrees =  restaurant.longitude
+        
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: 3200, longitudinalMeters: 1600)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(restaurant.name)"
+        mapItem.openInMaps(launchOptions: options)
+        
     }
     
 }
