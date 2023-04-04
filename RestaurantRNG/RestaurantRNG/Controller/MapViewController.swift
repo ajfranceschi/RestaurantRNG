@@ -70,13 +70,22 @@ class MapViewController: UIViewController {
         let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: latitudeDelta/69, longitudeDelta: longitudeDelta/69)) // each CLLocationDegree used in MKCoordinateRegion represents 69 miles
         mapView.setRegion(region, animated: false)
         
+        
+        
+        // remove anotations
+        self.mapView.annotations.forEach {
+          if !($0 is MKUserLocation) {
+            self.mapView.removeAnnotation($0)
+          }
+        }
+        
         // "for each" loop that effectively adds a pin/annotation for each restaurant in array
         if restaurants.count != 0 {
-            for restaurant in restaurants {
-                if (!restaurant.is_closed) {
+            restaurants.forEach {
+                if !$0.is_closed {
                     let annotation = MKPointAnnotation()
-                    annotation.title = restaurant.price
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
+                    annotation.title = $0.price
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
                     mapView.addAnnotation(annotation)
                 }
             }
@@ -104,15 +113,10 @@ class MapViewController: UIViewController {
         
         // Pass data to RestaurantViewController
         if segue.identifier == "ChooseForMeSegue" {
-            print("ChooseForMe tapped")
-            
             // Pass data
             if let restaurantViewController = segue.destination as? RestaurantViewController {
                 // Choose random restaurant
                 let randomRestaurant = self.restaurants.randomElement()
-                
-                print("Random restaurant chosen:")
-                randomRestaurant?.toString()
                 restaurantViewController.restaurant = randomRestaurant
             }
         } else if segue.identifier == "SettingsSegue" {
@@ -143,12 +147,15 @@ class MapViewController: UIViewController {
                     }
                 }
                 
+                print(restaurants.count)
+                
                 DispatchQueue.main.async {
                     self.updateMapView(self.distance, self.distance)
                 }
             } else {
                 // MARK: USER REJECTED ALL OPTIONS
                 // you removed all your options, would you like to expand the radius
+                // YOU ARE UNPLEASABLE!
             }
             
         }
