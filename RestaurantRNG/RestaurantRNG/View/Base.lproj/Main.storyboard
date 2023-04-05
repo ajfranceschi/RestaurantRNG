@@ -191,12 +191,12 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJ0-cv-jV6">
-                                                        <rect key="frame" x="148.66666666666666" y="18.666666666666629" width="75.666666666666657" height="20.666666666666671"/>
+                                                        <rect key="frame" x="117.00000000000001" y="18.666666666666629" width="139.33333333333337" height="20.666666666666671"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20.670000000000002" id="Rv5-AE-mnV"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                                        <buttonConfiguration key="configuration" style="plain" title="phoneNumber">
                                                             <fontDescription key="titleFontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -260,7 +260,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2q-u1-MWd">
                                                         <rect key="frame" x="166.66666666666663" y="0.0" width="146.33333333333337" height="35"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Reject">
+                                                        <buttonConfiguration key="configuration" style="filled" title="Try Again">
                                                             <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                                         </buttonConfiguration>
                                                         <connections>

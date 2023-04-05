@@ -27,6 +27,7 @@ class RestaurantViewController: UIViewController {
     
     var restaurant: Restaurant!
     var safariSvc: SFSafariViewController?
+    var accepted = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +79,9 @@ class RestaurantViewController: UIViewController {
     }
     
     @IBAction func didTapAcceptButton(_ sender: UIButton) {
-        openMapForPlace()
+        accepted = true
+        self.dismiss(animated: true)
+        openMapForPlace() // TODO: Maybe move this to the unwind in MapViewVC to reset the app.
     }
     
     @IBAction func didTapPhoneNumber(_ sender: UIButton) {
