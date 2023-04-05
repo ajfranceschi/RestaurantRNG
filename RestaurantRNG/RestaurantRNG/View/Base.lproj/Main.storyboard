@@ -100,56 +100,142 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-25-VkD" userLabel="Root Stack View">
-                                <rect key="frame" x="0.0" y="103" width="393" height="646"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-25-VkD" userLabel="Root Stack View">
+                                <rect key="frame" x="0.0" y="103" width="393" height="604.66666666666663"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xOD-If-S2Y">
-                                        <rect key="frame" x="0.0" y="1.6666666666666572" width="393" height="247"/>
+                                        <rect key="frame" x="0.0" y="1.6666666666666572" width="393" height="197"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="Vuu-zT-rx8"/>
+                                            <constraint firstAttribute="height" constant="200" id="Vuu-zT-rx8"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8nl-dh-ak1" userLabel="Labels Stack View">
-                                        <rect key="frame" x="0.0" y="270" width="393" height="376"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8nl-dh-ak1" userLabel="Labels Stack View">
+                                        <rect key="frame" x="0.0" y="215.00000000000003" width="393" height="389.66666666666674"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13q-LK-4MB">
-                                                <rect key="frame" x="111.66666666666669" y="0.0" width="170" height="40"/>
+                                                <rect key="frame" x="111.66666666666669" y="0.0" width="170" height="23.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantCategoryLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ7-Sd-x2V">
-                                                <rect key="frame" x="112.00000000000001" y="48" width="169.33333333333337" height="40"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantRatingLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbX-Tp-pTM">
-                                                <rect key="frame" x="121.66666666666667" y="96" width="149.66666666666663" height="40"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantPriceLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NU-0l-ZwN">
-                                                <rect key="frame" x="126.66666666666667" y="144" width="139.66666666666663" height="40"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurauntPhoneNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDL-hy-i2S">
-                                                <rect key="frame" x="107.33333333333333" y="192" width="178.33333333333337" height="40"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="restaurantAddressLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-NN-FjO">
-                                                <rect key="frame" x="115" y="240" width="163" height="40"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7A1-Ym-Ez3" userLabel="CategoryStack">
+                                                <rect key="frame" x="10" y="33.333333333333314" width="373" height="39.333333333333343"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht2-a8-Atl">
+                                                        <rect key="frame" x="164" y="0.0" width="45.333333333333343" height="13.666666666666666"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantCategoryLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ7-Sd-x2V">
+                                                        <rect key="frame" x="0.0" y="18.666666666666686" width="373" height="20.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="sQ7-Sd-x2V" firstAttribute="leading" secondItem="7A1-Ym-Ez3" secondAttribute="leading" id="K1l-Az-cgN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sQ7-Sd-x2V" secondAttribute="trailing" id="b6Z-aw-kSg"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pGs-Np-jRc" userLabel="RatingStack">
+                                                <rect key="frame" x="10" y="82.666666666666686" width="373" height="41"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLj-Rf-ICa">
+                                                        <rect key="frame" x="169" y="0.0" width="35.333333333333343" height="15.333333333333334"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantRatingLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbX-Tp-pTM">
+                                                        <rect key="frame" x="0.0" y="20.333333333333314" width="373" height="20.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="kbX-Tp-pTM" firstAttribute="leading" secondItem="pGs-Np-jRc" secondAttribute="leading" id="IMO-8J-CHr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kbX-Tp-pTM" secondAttribute="trailing" id="awI-1p-wx5"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vQX-sa-psh" userLabel="PriceStack">
+                                                <rect key="frame" x="10" y="133.66666666666669" width="373" height="39.333333333333343"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Price:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wM7-Ch-sev">
+                                                        <rect key="frame" x="174" y="0.0" width="25.333333333333343" height="13.666666666666666"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="restaurantPriceLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NU-0l-ZwN">
+                                                        <rect key="frame" x="0.0" y="18.666666666666629" width="373" height="20.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="0NU-0l-ZwN" secondAttribute="trailing" id="7TS-G3-cRI"/>
+                                                    <constraint firstItem="0NU-0l-ZwN" firstAttribute="leading" secondItem="vQX-sa-psh" secondAttribute="leading" id="Fiz-TC-SAb"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="X1s-nQ-MiR" userLabel="PhoneStack">
+                                                <rect key="frame" x="10" y="183" width="373" height="39.333333333333343"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjf-Tk-lPt">
+                                                        <rect key="frame" x="170.33333333333334" y="0.0" width="32.333333333333343" height="13.666666666666666"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJ0-cv-jV6">
+                                                        <rect key="frame" x="148.66666666666666" y="18.666666666666629" width="75.666666666666657" height="20.666666666666671"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20.670000000000002" id="Rv5-AE-mnV"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                                            <fontDescription key="titleFontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="didTapPhoneNumber:" destination="9j8-OT-PWb" eventType="touchUpInside" id="bYd-jA-P3g"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FQc-kz-icl">
+                                                <rect key="frame" x="10" y="232.33333333333337" width="373" height="65"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSP-Jt-qgz">
+                                                        <rect key="frame" x="166" y="0.0" width="41" height="13.666666666666666"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="restaurantAddressLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-NN-FjO">
+                                                        <rect key="frame" x="0.0" y="18.666666666666629" width="373" height="20.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="restaurantCityState" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWy-Gf-9EW">
+                                                        <rect key="frame" x="0.0" y="44.333333333333258" width="373" height="20.666666666666671"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Gqd-NN-FjO" firstAttribute="leading" secondItem="FQc-kz-icl" secondAttribute="leading" id="4O3-4s-olC"/>
+                                                    <constraint firstItem="uWy-Gf-9EW" firstAttribute="leading" secondItem="FQc-kz-icl" secondAttribute="leading" id="8Fi-Hj-GGA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Gqd-NN-FjO" secondAttribute="trailing" id="Vcx-Kk-hTb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="uWy-Gf-9EW" secondAttribute="trailing" id="WWQ-xY-PBC"/>
+                                                </constraints>
+                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1as-of-UCL">
-                                                <rect key="frame" x="134.33333333333334" y="288" width="124.66666666666666" height="40"/>
+                                                <rect key="frame" x="134.33333333333334" y="307.33333333333337" width="124.66666666666666" height="37.333333333333314"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Open in Yelp">
                                                     <fontDescription key="titleFontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -159,10 +245,10 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hEA-3f-Hb6" userLabel="Buttons Stack View">
-                                                <rect key="frame" x="40" y="336" width="313" height="40"/>
+                                                <rect key="frame" x="40" y="354.66666666666663" width="313" height="35"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeV-o1-rPg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="146.66666666666666" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="146.66666666666666" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Open In Maps">
                                                             <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
@@ -172,7 +258,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2q-u1-MWd">
-                                                        <rect key="frame" x="166.66666666666663" y="0.0" width="146.33333333333337" height="40"/>
+                                                        <rect key="frame" x="166.66666666666663" y="0.0" width="146.33333333333337" height="35"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Reject">
                                                             <color key="baseBackgroundColor" systemColor="systemRedColor"/>
@@ -184,16 +270,30 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="j76-c7-iKw"/>
+                                                    <constraint firstAttribute="height" constant="35" id="j76-c7-iKw"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="pGs-Np-jRc" secondAttribute="trailing" constant="10" id="0jO-xh-ksz"/>
+                                            <constraint firstAttribute="trailing" secondItem="vQX-sa-psh" secondAttribute="trailing" constant="10" id="3Pc-tx-AqN"/>
+                                            <constraint firstItem="pGs-Np-jRc" firstAttribute="leading" secondItem="8nl-dh-ak1" secondAttribute="leading" constant="10" id="5cS-UT-3lb"/>
+                                            <constraint firstItem="FQc-kz-icl" firstAttribute="leading" secondItem="8nl-dh-ak1" secondAttribute="leading" constant="10" id="AFk-LO-mkl"/>
+                                            <constraint firstItem="7A1-Ym-Ez3" firstAttribute="leading" secondItem="8nl-dh-ak1" secondAttribute="leading" constant="10" id="Chh-u0-Gm5"/>
                                             <constraint firstAttribute="trailing" secondItem="hEA-3f-Hb6" secondAttribute="trailing" constant="40" id="EFF-wY-eFP"/>
+                                            <constraint firstAttribute="trailing" secondItem="7A1-Ym-Ez3" secondAttribute="trailing" constant="10" id="LLd-LK-CbY"/>
+                                            <constraint firstAttribute="trailing" secondItem="X1s-nQ-MiR" secondAttribute="trailing" constant="10" id="h8y-if-UfN"/>
+                                            <constraint firstItem="vQX-sa-psh" firstAttribute="leading" secondItem="8nl-dh-ak1" secondAttribute="leading" constant="10" id="t2N-mi-UHb"/>
+                                            <constraint firstItem="X1s-nQ-MiR" firstAttribute="leading" secondItem="8nl-dh-ak1" secondAttribute="leading" constant="10" id="vQY-g0-yZh"/>
                                             <constraint firstItem="hEA-3f-Hb6" firstAttribute="leading" secondItem="8nl-dh-ak1" secondAttribute="leading" constant="40" id="wr7-Pp-fcD"/>
+                                            <constraint firstAttribute="trailing" secondItem="FQc-kz-icl" secondAttribute="trailing" constant="10" id="x1O-oO-ybI"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="8nl-dh-ak1" firstAttribute="leading" secondItem="wGQ-25-VkD" secondAttribute="leading" id="QZd-uW-0dV"/>
+                                    <constraint firstAttribute="trailing" secondItem="8nl-dh-ak1" secondAttribute="trailing" id="tla-Vm-ggL"/>
+                                </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVW-Ml-VoD" userLabel="HeaderView">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
@@ -229,15 +329,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="acceptButton" destination="yeV-o1-rPg" id="0Z6-kn-Blx"/>
+                        <outlet property="categoryLabel" destination="Ht2-a8-Atl" id="GA6-3W-Nvd"/>
                         <outlet property="rejectButton" destination="r2q-u1-MWd" id="fHU-nT-f4F"/>
                         <outlet property="restaurantAddressLabel" destination="Gqd-NN-FjO" id="gBy-Wc-sHP"/>
                         <outlet property="restaurantCategoryLabel" destination="sQ7-Sd-x2V" id="gYy-BX-3IH"/>
+                        <outlet property="restaurantCityStateLabel" destination="uWy-Gf-9EW" id="hES-7Z-o1n"/>
                         <outlet property="restaurantImageView" destination="xOD-If-S2Y" id="Pi6-dL-YAc"/>
                         <outlet property="restaurantLinkButton" destination="1as-of-UCL" id="Cjg-DI-hC7"/>
                         <outlet property="restaurantNameLabel" destination="13q-LK-4MB" id="Mc3-Lh-EIc"/>
+                        <outlet property="restaurantPhoneNumber" destination="YJ0-cv-jV6" id="2wQ-z0-5fm"/>
                         <outlet property="restaurantPriceLabel" destination="0NU-0l-ZwN" id="l7b-pj-r68"/>
                         <outlet property="restaurantRatingLabel" destination="kbX-Tp-pTM" id="ELx-wI-PvU"/>
-                        <outlet property="restuarantPhoneNumber" destination="mDL-hy-i2S" id="atd-gb-IgN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bA4-cI-7Ma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -306,8 +408,8 @@
                                     <constraint firstAttribute="bottom" secondItem="xgK-4c-Dpf" secondAttribute="bottom" constant="8" id="xza-au-v2C"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="4xY-XK-fiq">
-                                <rect key="frame" x="10" y="111" width="373" height="153"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4xY-XK-fiq">
+                                <rect key="frame" x="10" y="111" width="373" height="176"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYt-oL-DS0" userLabel="SettingsLabel">
                                         <rect key="frame" x="151" y="0.0" width="71.333333333333314" height="26"/>
@@ -316,10 +418,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="csf-eK-Sa8">
-                                        <rect key="frame" x="0.0" y="43" width="373" height="110"/>
+                                        <rect key="frame" x="0.0" y="46" width="373" height="130"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TB7-Wx-nTN" userLabel="LabelStackView">
-                                                <rect key="frame" x="0.0" y="5" width="104" height="100"/>
+                                                <rect key="frame" x="0.0" y="5" width="104" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6J-ad-x9l">
                                                         <rect key="frame" x="0.0" y="0.0" width="104" height="23.333333333333332"/>
@@ -328,21 +430,21 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOF-fw-H9K">
-                                                        <rect key="frame" x="0.0" y="38.333333333333343" width="104" height="23.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="48.333333333333343" width="104" height="23.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeD-f7-lkN">
-                                                        <rect key="frame" x="0.0" y="76.666666666666657" width="104" height="23.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="96.666666666666686" width="104" height="23.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SOn-YW-sMc" userLabel="SliderStackView">
-                                                <rect key="frame" x="113.66666666666669" y="0.0" width="200" height="110"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SOn-YW-sMc" userLabel="SliderStackView">
+                                                <rect key="frame" x="113.66666666666669" y="0.0" width="200" height="130"/>
                                                 <subviews>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="JhB-YT-w4H" userLabel="Distance Slider">
                                                         <rect key="frame" x="-2" y="0.0" width="204" height="31"/>
@@ -354,7 +456,7 @@
                                                         </connections>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="oDP-gt-Ohh" userLabel="Rating Slider">
-                                                        <rect key="frame" x="-2" y="40" width="204" height="31"/>
+                                                        <rect key="frame" x="-2" y="50" width="204" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="MsJ-Kq-e9k"/>
                                                         </constraints>
@@ -363,7 +465,7 @@
                                                         </connections>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="OeP-4K-INP" userLabel="Value Slider">
-                                                        <rect key="frame" x="-2" y="80" width="204" height="31"/>
+                                                        <rect key="frame" x="-2" y="100" width="204" height="31"/>
                                                         <color key="minimumTrackTintColor" systemColor="linkColor"/>
                                                         <connections>
                                                             <action selector="didChangePriceSliderValue:" destination="jbv-mq-ioG" eventType="valueChanged" id="ppM-yN-Bko"/>
@@ -372,7 +474,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PoM-1Q-H0h" userLabel="ValueStackView">
-                                                <rect key="frame" x="323" y="5" width="50" height="100"/>
+                                                <rect key="frame" x="323" y="5" width="50" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTp-rB-35d">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="23.333333333333332"/>
@@ -381,13 +483,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="el2-Mi-ln7">
-                                                        <rect key="frame" x="0.0" y="38.333333333333343" width="50" height="23.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="48.333333333333343" width="50" height="23.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c22-5T-TJy">
-                                                        <rect key="frame" x="0.0" y="76.666666666666657" width="50" height="23.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="96.666666666666686" width="50" height="23.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -413,7 +515,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="SmD-Aq-zRj">
-                                <rect key="frame" x="104" y="334" width="185" height="34.333333333333314"/>
+                                <rect key="frame" x="104" y="357" width="185" height="34.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucI-aL-Uaq">
                                         <rect key="frame" x="0.0" y="0.0" width="77" height="34.333333333333336"/>
@@ -440,7 +542,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zl4-Mj-QxQ"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="4xY-XK-fiq" secondAttribute="trailing" constant="10" id="C95-2T-NhJ"/>
                             <constraint firstItem="SmD-Aq-zRj" firstAttribute="top" secondItem="4xY-XK-fiq" secondAttribute="bottom" constant="70" id="Mtw-LN-8BT"/>
