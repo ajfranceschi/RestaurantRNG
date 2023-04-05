@@ -19,6 +19,7 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var restuarantPhoneNumber: UILabel!
     @IBOutlet weak var restaurantPriceLabel: UILabel!
     @IBOutlet weak var restaurantNameLabel: UILabel!
+    @IBOutlet weak var restaurantCategoryLabel: UILabel!
     @IBOutlet weak var restaurantRatingLabel: UILabel!
     @IBOutlet weak var restaurantLinkButton: UIButton!
     
@@ -28,16 +29,36 @@ class RestaurantViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        
-        if let restaurantUrl = restaurant.image_url{
-            Nuke.loadImage(with: restaurantUrl, into: restaurantImageView)
+        // Nuke, load image
+        if let restaurantUrl = restaurant.image_url {
+            ImagePipeline.shared.loadImage(with: restaurantUrl) { result in
+                switch result {
+                case.success(let res):
+                    self.restaurantImageView.image = res.image
+                    break
+                case .failure(let error):
+                    print("\n\n\(restaurantUrl)\n\(error.localizedDescription)")
+                    self.restaurantImageView.image = UIImage(systemName: "photo")
+                    break
+                }
+            }
         }
+        
+        // Restaurant Labels
         restaurantNameLabel.text = restaurant.name
-        restaurantRatingLabel.text = String(format: "%.1f", restaurant.rating)
-        restaurantAddressLabel.text = restaurant.streetAddress1
-        restuarantPhoneNumber.text = restaurant.display_phone?.applyPatternOnNumbers(pattern: "+# (###) ###-####", replacementCharacter: "#")
-        restaurantPriceLabel.text = restaurant.price
+        restaurantRatingLabel.text = String(format: "Rating: %.1f", restaurant.rating)
+        restaurantAddressLabel.text = "Address: \(restaurant.streetAddress1)\n\(restaurant.city), \(restaurant.state)"
+        
+        if let phone = restaurant.display_phone {
+            restuarantPhoneNumber.text = "Phone: \(phone.applyPatternOnNumbers(pattern: "+# (###) ###-####", replacementCharacter: "#"))"
+        }
+        
+        restaurantPriceLabel.text = "Price: \(restaurant.price)"
+        
+        var restaurantCategories = restaurant.categories.map { $0.name }
+        let categoriesLabel = restaurantCategories.count > 1 ? "Categories:" : "Category:"
+        restaurantCategoryLabel.text = "\(categoriesLabel) \(restaurantCategories.joined(separator: ", "))"
+        
         safariSvc = SFSafariViewController(url: restaurant.url)
     }
     
