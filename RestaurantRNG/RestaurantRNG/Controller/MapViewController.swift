@@ -219,7 +219,7 @@ extension MapViewController {
         let yelpQuery = YLPQuery(coordinate: yelpCoordinate)
         yelpQuery.categoryFilter = ["restaurants"]
         yelpQuery.radiusFilter = floor(Double(1600 * distance))
-        yelpQuery.limit = 5
+        yelpQuery.limit = 50
         var tempRestaurants = [Restaurant]()
         
         
