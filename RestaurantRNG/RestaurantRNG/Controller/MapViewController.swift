@@ -217,7 +217,7 @@ extension MapViewController {
         let yelpClient = YLPClient(apiKey: YELP_API_KEY)
         let yelpCoordinate = YLPCoordinate(latitude: latitude, longitude: longitude)
         let yelpQuery = YLPQuery(coordinate: yelpCoordinate)
-        yelpQuery.categoryFilter = ["restaurants"]
+        yelpQuery.categoryFilter = ["restaurants"] //this array can be used to let user select cuisine
         yelpQuery.radiusFilter = floor(Double(1600 * distance))
         yelpQuery.limit = 50
         var tempRestaurants = [Restaurant]()
