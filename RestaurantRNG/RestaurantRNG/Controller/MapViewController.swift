@@ -139,7 +139,9 @@ class MapViewController: UIViewController {
                 price: settingsVC.price
             )
         } else if let restaurantVC = segue.source as? RestaurantViewController {
-            if restaurants.count > 1 {
+            if restaurantVC.accepted {
+                print("Accepted Restaurant")
+            } else if restaurants.count > 1 {
                 for index in 0..<restaurants.count {
                     if restaurants[index].name == restaurantVC.restaurant.name {
                         restaurants.remove(at: index)
@@ -147,15 +149,20 @@ class MapViewController: UIViewController {
                     }
                 }
                 
-                print(restaurants.count)
-                
                 DispatchQueue.main.async {
                     self.updateMapView(self.distance, self.distance)
+                    self.performSegue(withIdentifier: "ChooseForMeSegue", sender: nil)
+                    
                 }
             } else {
                 // MARK: USER REJECTED ALL OPTIONS
                 // you removed all your options, would you like to expand the radius
                 // YOU ARE UNPLEASABLE!
+                showAlert(title: "😱", message: """
+                No more options!
+                Change your settings for more options
+                """
+                )
             }
             
         }
@@ -212,7 +219,7 @@ extension MapViewController {
         let yelpQuery = YLPQuery(coordinate: yelpCoordinate)
         yelpQuery.categoryFilter = ["restaurants"]
         yelpQuery.radiusFilter = floor(Double(1600 * distance))
-        yelpQuery.limit = 50
+        yelpQuery.limit = 5
         var tempRestaurants = [Restaurant]()
         
         
@@ -272,7 +279,23 @@ extension MapViewController {
 
 // MARK: ALERTS
 extension MapViewController {
-    func showAlert() {
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { action in
+            self.getRestaurantsFromYelp(
+                currentLatitude: self.currentLocation.coordinate.latitude,
+                currentLongitude: self.currentLocation.coordinate.longitude,
+                distance: self.distance,
+                rating: self.rating,
+                price: self.price
+            )
+            
+            DispatchQueue.main.async {
+                self.updateMapView(self.distance, self.distance) // this can be changed to use only one distance
+            }
+        }
         
+        alertController.addAction(action)
+        present(alertController, animated: true)
     }
 }
