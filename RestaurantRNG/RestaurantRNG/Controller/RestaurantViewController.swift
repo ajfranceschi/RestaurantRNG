@@ -16,12 +16,14 @@ class RestaurantViewController: UIViewController {
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var restaurantAddressLabel: UILabel!
-    @IBOutlet weak var restuarantPhoneNumber: UILabel!
+    @IBOutlet weak var restaurantCityStateLabel: UILabel!
+    @IBOutlet weak var restaurantPhoneNumber: UIButton!
     @IBOutlet weak var restaurantPriceLabel: UILabel!
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var restaurantCategoryLabel: UILabel!
     @IBOutlet weak var restaurantRatingLabel: UILabel!
     @IBOutlet weak var restaurantLinkButton: UIButton!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     var restaurant: Restaurant!
     var safariSvc: SFSafariViewController?
@@ -47,17 +49,18 @@ class RestaurantViewController: UIViewController {
         // Restaurant Labels
         restaurantNameLabel.text = restaurant.name
         restaurantRatingLabel.text = String(format: "Rating: %.1f", restaurant.rating)
-        restaurantAddressLabel.text = "Address: \(restaurant.streetAddress1)\n\(restaurant.city), \(restaurant.state)"
+        restaurantAddressLabel.text = restaurant.streetAddress1
+        restaurantCityStateLabel.text = "\(restaurant.city), \(restaurant.state)"
         
         if let phone = restaurant.display_phone {
-            restuarantPhoneNumber.text = "Phone: \(phone.applyPatternOnNumbers(pattern: "+# (###) ###-####", replacementCharacter: "#"))"
+            restaurantPhoneNumber.setTitle(phone.applyPatternOnNumbers(pattern: "+# (###) ###-####", replacementCharacter: "#"), for: .normal)
         }
+                
+        restaurantPriceLabel.text = restaurant.price
         
-        restaurantPriceLabel.text = "Price: \(restaurant.price)"
-        
-        var restaurantCategories = restaurant.categories.map { $0.name }
-        let categoriesLabel = restaurantCategories.count > 1 ? "Categories:" : "Category:"
-        restaurantCategoryLabel.text = "\(categoriesLabel) \(restaurantCategories.joined(separator: ", "))"
+        let restaurantCategories = restaurant.categories.map { $0.name }
+        categoryLabel.text = restaurantCategories.count > 1 ? "Categories:" : "Category:"
+        restaurantCategoryLabel.text = restaurantCategories.joined(separator: ", ")
         
         safariSvc = SFSafariViewController(url: restaurant.url)
     }
@@ -73,9 +76,18 @@ class RestaurantViewController: UIViewController {
     @IBAction func didTapRejectButton(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
+    
     @IBAction func didTapAcceptButton(_ sender: UIButton) {
         openMapForPlace()
     }
+    
+    @IBAction func didTapPhoneNumber(_ sender: UIButton) {
+        guard let phone = restaurant.display_phone else { return }
+        UIApplication.shared.open(URL(string: "tel://\(phone)")!)
+    }
+    
+    
+    
     func openMapForPlace() {
         
         let latitude:CLLocationDegrees =  restaurant.latitude
@@ -93,6 +105,8 @@ class RestaurantViewController: UIViewController {
         mapItem.openInMaps(launchOptions: options)
         
     }
+    
+    
     
 }
 
