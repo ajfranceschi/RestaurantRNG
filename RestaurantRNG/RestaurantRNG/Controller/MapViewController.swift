@@ -166,8 +166,7 @@ class MapViewController: UIViewController {
 extension MapViewController : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            print(currentLocation.coordinate.latitude)
-            print(currentLocation.coordinate.longitude)
+            
             DispatchQueue.main.async {
                 
                 self.currentLocation = location
@@ -224,14 +223,18 @@ extension MapViewController {
                 if let search = search {
                     for business in search.businesses {
                         var stAddress2 = ""
+                        
+                        // validate whether address has multiple lines
                         if business.location.address.count > 1 {
                             stAddress2 = business.location.address[1]
                         }
                         
+                        // filter for restaurantes based on max dollar signs (price)
                         if business.price.count > price {
                             continue
                         }
                         
+                        // filter for restaurantes based on min rating
                         if business.rating < rating {
                             continue
                         }
@@ -240,7 +243,8 @@ extension MapViewController {
                             name: business.name,
                             image_url: business.imageURL,
                             is_closed: business.isClosed,
-                            url: business.url, category: business.categories[0].name,
+                            url: business.url,
+                            categories: business.categories,
                             rating: business.rating,
                             latitude: business.location.coordinate!.latitude,
                             longitude: business.location.coordinate!.longitude,
@@ -252,7 +256,8 @@ extension MapViewController {
                             zipCode: business.location.postalCode,
                             city: business.location.city,
                             country: business.location.countryCode,
-                            state: business.location.stateCode))
+                            state: business.location.stateCode
+                        ))
                     }
                 }
             }
