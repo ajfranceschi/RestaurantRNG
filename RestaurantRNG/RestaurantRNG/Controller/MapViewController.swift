@@ -57,7 +57,7 @@ class MapViewController: UIViewController {
         // Remove default POIs
         let mapConfiguration = MKStandardMapConfiguration()
         mapConfiguration.pointOfInterestFilter = MKPointOfInterestFilter.excludingAll
-        mapView.isUserInteractionEnabled = false // disable interaction with map
+//        mapView.isUserInteractionEnabled = false // disable interaction with map
         mapView.preferredConfiguration = mapConfiguration
   
     }
