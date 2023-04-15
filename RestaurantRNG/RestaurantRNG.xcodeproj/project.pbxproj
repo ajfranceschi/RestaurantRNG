@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03878A6BC8C5E6E21C1D511B /* Pods_RestaurantRNG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BFE40C7659D72C38AAAB185 /* Pods_RestaurantRNG.framework */; };
 		9D2C060A29BCFD7C002EA244 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C060929BCFD7C002EA244 /* Restaurant.swift */; };
+		9DA0B79729E4EB780076708A /* EnvVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B79629E4EB780076708A /* EnvVars.swift */; };
 		A97A547529BBCFF40034BEE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A547429BBCFF40034BEE6 /* AppDelegate.swift */; };
 		A97A547729BBCFF40034BEE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A547629BBCFF40034BEE6 /* SceneDelegate.swift */; };
 		A97A547929BBCFF40034BEE6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A547829BBCFF40034BEE6 /* MapViewController.swift */; };
@@ -19,7 +20,6 @@
 		A97A548B29BBD0050034BEE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A97A548929BBD0040034BEE6 /* README.md */; };
 		A97A549129BBD6760034BEE6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A97A549029BBD6760034BEE6 /* .gitignore */; };
 		A97C076629CBC27C0086FC4C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C076529CBC27C0086FC4C /* SettingsViewController.swift */; };
-		A990882E29C8161500317CD5 /* EnvVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = A990882D29C8161500317CD5 /* EnvVars.swift */; };
 		A9AFEE1B29C956150088BF43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AFEE1A29C956150088BF43 /* Constants.swift */; };
 		A9AFEE2129C95FD50088BF43 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = A9AFEE2029C95FD50088BF43 /* Nuke */; };
 		BFA51DD829CAB7C400611063 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA51DD729CAB7C400611063 /* RestaurantViewController.swift */; };
@@ -29,6 +29,7 @@
 		2BFE40C7659D72C38AAAB185 /* Pods_RestaurantRNG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRNG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D6EE21592FA94566D03EE1 /* Pods-RestaurantRNG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRNG.release.xcconfig"; path = "Target Support Files/Pods-RestaurantRNG/Pods-RestaurantRNG.release.xcconfig"; sourceTree = "<group>"; };
 		9D2C060929BCFD7C002EA244 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		9DA0B79629E4EB780076708A /* EnvVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EnvVars.swift; path = RestaurantRNG/Model/EnvVars.swift; sourceTree = SOURCE_ROOT; };
 		A97A547129BBCFF40034BEE6 /* RestaurantRNG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantRNG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97A547429BBCFF40034BEE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A97A547629BBCFF40034BEE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		A97A548929BBD0040034BEE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A97A549029BBD6760034BEE6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		A97C076529CBC27C0086FC4C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A990882D29C8161500317CD5 /* EnvVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvVars.swift; sourceTree = "<group>"; };
 		A9AFEE1A29C956150088BF43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AD3C73D1A17804D9B1C5E51D /* Pods-RestaurantRNG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRNG.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRNG/Pods-RestaurantRNG.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA51DD729CAB7C400611063 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		A990882C29C815DE00317CD5 /* Env */ = {
 			isa = PBXGroup;
 			children = (
-				A990882D29C8161500317CD5 /* EnvVars.swift */,
+				9DA0B79629E4EB780076708A /* EnvVars.swift */,
 			);
 			path = Env;
 			sourceTree = "<group>";
@@ -285,8 +285,8 @@
 				BFA51DD829CAB7C400611063 /* RestaurantViewController.swift in Sources */,
 				A97A547929BBCFF40034BEE6 /* MapViewController.swift in Sources */,
 				A97A547529BBCFF40034BEE6 /* AppDelegate.swift in Sources */,
-				A990882E29C8161500317CD5 /* EnvVars.swift in Sources */,
 				A97A547729BBCFF40034BEE6 /* SceneDelegate.swift in Sources */,
+				9DA0B79729E4EB780076708A /* EnvVars.swift in Sources */,
 				A9AFEE1B29C956150088BF43 /* Constants.swift in Sources */,
 				A97C076629CBC27C0086FC4C /* SettingsViewController.swift in Sources */,
 			);
@@ -436,7 +436,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N68ZU8HP37;
+				DEVELOPMENT_TEAM = 33WF496U8F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RestaurantRNG/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RestaurantRNG;
@@ -472,7 +472,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N68ZU8HP37;
+				DEVELOPMENT_TEAM = 33WF496U8F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RestaurantRNG/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = RestaurantRNG;
