@@ -40,7 +40,8 @@ class MapViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         
         if locationManager.authorizationStatus == .denied {
-            // TODO: Show alert to go to settings with message advising that app doesn't work without location and to enable in settings.
+            showGenericAlert(description: "Application denied user location data. Please update Settings.")
+            openSettings()
         } else {
             
             // set CLLocationManager delegate to self
@@ -70,8 +71,6 @@ class MapViewController: UIViewController {
         let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: latitudeDelta/69, longitudeDelta: longitudeDelta/69)) // each CLLocationDegree used in MKCoordinateRegion represents 69 miles
         mapView.setRegion(region, animated: false)
         
-        
-        
         // remove anotations
         self.mapView.annotations.forEach {
           if !($0 is MKUserLocation) {
@@ -98,9 +97,14 @@ class MapViewController: UIViewController {
         
         // MARK: Declare a constant named YELP_API_KEY in /RestaurantRNG/Env/EnvVars.swift (must create structure for your project)
 
-        let latitude = currentLocation.coordinate.latitude
-        let longitude = currentLocation.coordinate.longitude
-        getRestaurantsFromYelp(currentLatitude: latitude, currentLongitude: longitude)
+        if NetworkMonitor.shared.isConnected {
+            let latitude = currentLocation.coordinate.latitude
+            let longitude = currentLocation.coordinate.longitude
+            getRestaurantsFromYelp(currentLatitude: latitude, currentLongitude: longitude)
+        }
+        else {
+            showGenericAlert(description: "No connectivity, please try again later.")
+        }
     }
     
     
@@ -131,13 +135,18 @@ class MapViewController: UIViewController {
     // function called when VCs exit
     @IBAction func unwindMapViewVC(segue: UIStoryboardSegue) {
         if let settingsVC = segue.source as? SettingsViewController {
-            getRestaurantsFromYelp(
-                currentLatitude: currentLocation.coordinate.latitude,
-                currentLongitude: currentLocation.coordinate.longitude,
-                distance: Double(settingsVC.distance),
-                rating: Double(settingsVC.rating),
-                price: settingsVC.price
-            )
+            if NetworkMonitor.shared.isConnected {
+                getRestaurantsFromYelp(
+                    currentLatitude: currentLocation.coordinate.latitude,
+                    currentLongitude: currentLocation.coordinate.longitude,
+                    distance: Double(settingsVC.distance),
+                    rating: Double(settingsVC.rating),
+                    price: settingsVC.price
+                )
+            }
+            else {
+                showGenericAlert(description: "No connectivity, please try again later.")
+            }
         } else if let restaurantVC = segue.source as? RestaurantViewController {
             if restaurantVC.accepted {
                 print("Accepted Restaurant")
@@ -165,6 +174,16 @@ class MapViewController: UIViewController {
                 )
             }
             
+        }
+    }
+    
+    func openSettings() {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
         }
     }
 }
@@ -203,6 +222,12 @@ extension MapViewController : MKMapViewDelegate {
 extension MapViewController {
     func getRestaurantsFromYelp(currentLatitude latitude: Double, currentLongitude longitude: Double, distance: Double = 0, rating: Double = 0, price: Int = 5) {
 
+        // checks for network connection first and returns upon failure
+        guard(NetworkMonitor.shared.isConnected) else {
+            showGenericAlert(description: "There is currently no internet connection! Please try again later.")
+            return
+        }
+        
         guard (latitude >= -90 && latitude <= 90) else {
             print("latitude must be between -90 and 90")
             return
