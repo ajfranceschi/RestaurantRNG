@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		03878A6BC8C5E6E21C1D511B /* Pods_RestaurantRNG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BFE40C7659D72C38AAAB185 /* Pods_RestaurantRNG.framework */; };
 		9D2C060A29BCFD7C002EA244 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C060929BCFD7C002EA244 /* Restaurant.swift */; };
+		9D61A82D29EB51EA00F6FD2F /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61A82C29EB51EA00F6FD2F /* NetworkMonitor.swift */; };
+		9D61A83029EB54EC00F6FD2F /* AlertExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61A82F29EB54EC00F6FD2F /* AlertExt.swift */; };
+		9DA0B79729E4EB780076708A /* EnvVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B79629E4EB780076708A /* EnvVars.swift */; };
+		A930D63229ECC5C30033A1DB /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A930D63029ECC5C30033A1DB /* DataModel.xcdatamodeld */; };
+		A97A40D029E3DC6500049A93 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A40CF29E3DC6500049A93 /* InstructionsViewController.swift */; };
 		A97A547529BBCFF40034BEE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A547429BBCFF40034BEE6 /* AppDelegate.swift */; };
 		A97A547729BBCFF40034BEE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A547629BBCFF40034BEE6 /* SceneDelegate.swift */; };
 		A97A547929BBCFF40034BEE6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97A547829BBCFF40034BEE6 /* MapViewController.swift */; };
@@ -19,7 +24,6 @@
 		A97A548B29BBD0050034BEE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A97A548929BBD0040034BEE6 /* README.md */; };
 		A97A549129BBD6760034BEE6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A97A549029BBD6760034BEE6 /* .gitignore */; };
 		A97C076629CBC27C0086FC4C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C076529CBC27C0086FC4C /* SettingsViewController.swift */; };
-		A990882E29C8161500317CD5 /* EnvVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = A990882D29C8161500317CD5 /* EnvVars.swift */; };
 		A9AFEE1B29C956150088BF43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AFEE1A29C956150088BF43 /* Constants.swift */; };
 		A9AFEE2129C95FD50088BF43 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = A9AFEE2029C95FD50088BF43 /* Nuke */; };
 		BFA51DD829CAB7C400611063 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA51DD729CAB7C400611063 /* RestaurantViewController.swift */; };
@@ -29,6 +33,11 @@
 		2BFE40C7659D72C38AAAB185 /* Pods_RestaurantRNG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRNG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D6EE21592FA94566D03EE1 /* Pods-RestaurantRNG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRNG.release.xcconfig"; path = "Target Support Files/Pods-RestaurantRNG/Pods-RestaurantRNG.release.xcconfig"; sourceTree = "<group>"; };
 		9D2C060929BCFD7C002EA244 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		9D61A82C29EB51EA00F6FD2F /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		9D61A82F29EB54EC00F6FD2F /* AlertExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExt.swift; sourceTree = "<group>"; };
+		9DA0B79629E4EB780076708A /* EnvVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EnvVars.swift; path = RestaurantRNG/Env/EnvVars.swift; sourceTree = SOURCE_ROOT; };
+		A930D63129ECC5C30033A1DB /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		A97A40CF29E3DC6500049A93 /* InstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		A97A547129BBCFF40034BEE6 /* RestaurantRNG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantRNG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97A547429BBCFF40034BEE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A97A547629BBCFF40034BEE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +50,6 @@
 		A97A548929BBD0040034BEE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A97A549029BBD6760034BEE6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		A97C076529CBC27C0086FC4C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A990882D29C8161500317CD5 /* EnvVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvVars.swift; sourceTree = "<group>"; };
 		A9AFEE1A29C956150088BF43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AD3C73D1A17804D9B1C5E51D /* Pods-RestaurantRNG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRNG.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRNG/Pods-RestaurantRNG.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA51DD729CAB7C400611063 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				9D2C060929BCFD7C002EA244 /* Restaurant.swift */,
+				9D61A82C29EB51EA00F6FD2F /* NetworkMonitor.swift */,
+				A930D63029ECC5C30033A1DB /* DataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,8 +109,17 @@
 				A97A547829BBCFF40034BEE6 /* MapViewController.swift */,
 				BFA51DD729CAB7C400611063 /* RestaurantViewController.swift */,
 				A97C076529CBC27C0086FC4C /* SettingsViewController.swift */,
+				A97A40CF29E3DC6500049A93 /* InstructionsViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9D61A82E29EB54C700F6FD2F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9D61A82F29EB54EC00F6FD2F /* AlertExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A97A546829BBCFF40034BEE6 = {
@@ -130,6 +149,7 @@
 				9D2C060629BCFD17002EA244 /* Model */,
 				9D2C060729BCFD1D002EA244 /* View */,
 				9D2C060829BCFD28002EA244 /* Controller */,
+				9D61A82E29EB54C700F6FD2F /* Extensions */,
 				A97A547429BBCFF40034BEE6 /* AppDelegate.swift */,
 				A97A547629BBCFF40034BEE6 /* SceneDelegate.swift */,
 				A97A547D29BBCFF60034BEE6 /* Assets.xcassets */,
@@ -144,7 +164,7 @@
 		A990882C29C815DE00317CD5 /* Env */ = {
 			isa = PBXGroup;
 			children = (
-				A990882D29C8161500317CD5 /* EnvVars.swift */,
+				9DA0B79629E4EB780076708A /* EnvVars.swift */,
 			);
 			path = Env;
 			sourceTree = "<group>";
@@ -282,12 +302,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2C060A29BCFD7C002EA244 /* Restaurant.swift in Sources */,
+				A930D63229ECC5C30033A1DB /* DataModel.xcdatamodeld in Sources */,
 				BFA51DD829CAB7C400611063 /* RestaurantViewController.swift in Sources */,
 				A97A547929BBCFF40034BEE6 /* MapViewController.swift in Sources */,
+				A97A40D029E3DC6500049A93 /* InstructionsViewController.swift in Sources */,
 				A97A547529BBCFF40034BEE6 /* AppDelegate.swift in Sources */,
-				A990882E29C8161500317CD5 /* EnvVars.swift in Sources */,
 				A97A547729BBCFF40034BEE6 /* SceneDelegate.swift in Sources */,
+				9DA0B79729E4EB780076708A /* EnvVars.swift in Sources */,
+				9D61A83029EB54EC00F6FD2F /* AlertExt.swift in Sources */,
 				A9AFEE1B29C956150088BF43 /* Constants.swift in Sources */,
+				9D61A82D29EB51EA00F6FD2F /* NetworkMonitor.swift in Sources */,
 				A97C076629CBC27C0086FC4C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,7 +553,7 @@
 			repositoryURL = "https://github.com/kean/Nuke";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 12.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -541,6 +565,19 @@
 			productName = Nuke;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		A930D63029ECC5C30033A1DB /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A930D63129ECC5C30033A1DB /* DataModel.xcdatamodel */,
+			);
+			currentVersion = A930D63129ECC5C30033A1DB /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A97A546929BBCFF40034BEE6 /* Project object */;
 }

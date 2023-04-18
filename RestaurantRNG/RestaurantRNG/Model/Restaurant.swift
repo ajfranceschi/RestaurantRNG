@@ -6,16 +6,14 @@
 //
 
 import Foundation
-import MapKit
-import CoreLocation
-import Nuke
+import YelpAPI
 
 struct Restaurant {
     let name: String
     let image_url: URL?
     let is_closed: Bool
     let url: URL
-    var category: String
+    var categories: [YLPCategory]
     let rating: Double
     let latitude: Double
     let longitude: Double
@@ -37,3 +35,4 @@ struct Restaurant {
     }
     
 }
+
