@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,6 +23,33 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="4UY-Os-iOy">
+                                <rect key="frame" x="16" y="122.99999999999999" width="361" height="34.333333333333329"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZyJ-H9-dpo">
+                                        <rect key="frame" x="311.66666666666669" y="0.0" width="49.333333333333314" height="34.333333333333336"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.64750079719387754" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="titleShadowOffset" width="5" height="5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="location.fill" catalog="system" symbolScale="large"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTapCenterOnUserLocationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="buW-4v-w3b"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ZyJ-H9-dpo" firstAttribute="top" secondItem="4UY-Os-iOy" secondAttribute="top" id="Y0z-Cj-v9w"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZyJ-H9-dpo" secondAttribute="trailing" id="jtc-mE-iJJ"/>
+                                </constraints>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YWO-NI-VDg">
                                 <rect key="frame" x="50" y="679" width="293" height="50"/>
                                 <subviews>
@@ -55,12 +83,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4UY-Os-iOy" secondAttribute="trailing" constant="16" id="0gk-nI-GNY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YWO-NI-VDg" secondAttribute="bottom" constant="40" id="24g-KL-Pag"/>
+                            <constraint firstItem="4UY-Os-iOy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HnF-bQ-Bzs"/>
                             <constraint firstItem="YWO-NI-VDg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M7v-pZ-8Ec"/>
                             <constraint firstItem="llq-L3-FTr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PdM-Yf-QhM"/>
                             <constraint firstItem="eH4-cz-7f4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="RBw-zk-U1C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YWO-NI-VDg" secondAttribute="trailing" constant="50" id="S31-04-a1O"/>
                             <constraint firstAttribute="bottom" secondItem="eH4-cz-7f4" secondAttribute="bottom" id="S35-bk-OCh"/>
+                            <constraint firstItem="4UY-Os-iOy" firstAttribute="top" secondItem="llq-L3-FTr" secondAttribute="bottom" constant="20" id="WER-zz-CGM"/>
                             <constraint firstItem="llq-L3-FTr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ya1-Z1-vuV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eH4-cz-7f4" secondAttribute="trailing" id="ijU-Bz-tpS"/>
                             <constraint firstItem="YWO-NI-VDg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="j1j-sn-ilz"/>
@@ -79,15 +110,16 @@
                                 </segue>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="person.crop.circle" catalog="system" id="z2d-k3-pLG">
+                        <barButtonItem key="rightBarButtonItem" image="questionmark.circle.fill" catalog="system" id="z2d-k3-pLG">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="didTapProfileButton:" destination="BYZ-38-t0r" id="gzm-J2-hAd"/>
+                                <action selector="didTapHelpButton:" destination="BYZ-38-t0r" id="gzm-J2-hAd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="centerOnUserLocationButton" destination="ZyJ-H9-dpo" id="tX6-jy-YpR"/>
                         <outlet property="chooseButton" destination="D0D-52-fTD" id="7dZ-K2-Tzg"/>
                         <outlet property="mapView" destination="eH4-cz-7f4" id="mh2-y1-nGk"/>
                         <outlet property="prefsButton" destination="xqi-nk-mtX" id="pSy-62-eIJ"/>
@@ -107,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wGQ-25-VkD" userLabel="Root Stack View">
-                                <rect key="frame" x="0.0" y="103" width="393" height="604.66666666666663"/>
+                                <rect key="frame" x="0.0" y="101" width="393" height="604.66666666666663"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xOD-If-S2Y">
                                         <rect key="frame" x="0.0" y="1.6666666666666572" width="393" height="197"/>
@@ -324,7 +356,7 @@
                         <constraints>
                             <constraint firstItem="wGQ-25-VkD" firstAttribute="leading" secondItem="Zh3-nJ-J24" secondAttribute="leading" id="AZk-1c-Tqg"/>
                             <constraint firstItem="XVW-Ml-VoD" firstAttribute="top" secondItem="Nzb-dM-ACS" secondAttribute="top" id="BFd-8x-53r"/>
-                            <constraint firstItem="wGQ-25-VkD" firstAttribute="top" secondItem="XVW-Ml-VoD" secondAttribute="bottom" id="LhN-Xs-e8u"/>
+                            <constraint firstItem="wGQ-25-VkD" firstAttribute="top" secondItem="XVW-Ml-VoD" secondAttribute="bottom" constant="-2" id="LhN-Xs-e8u"/>
                             <constraint firstItem="XVW-Ml-VoD" firstAttribute="leading" secondItem="Zh3-nJ-J24" secondAttribute="leading" id="fUU-uk-0z3"/>
                             <constraint firstItem="XVW-Ml-VoD" firstAttribute="trailing" secondItem="Zh3-nJ-J24" secondAttribute="trailing" id="psh-FX-ujE"/>
                             <constraint firstItem="Zh3-nJ-J24" firstAttribute="trailing" secondItem="wGQ-25-VkD" secondAttribute="trailing" id="wbB-QK-qwY"/>
@@ -576,12 +608,55 @@
             </objects>
             <point key="canvasLocation" x="1971.7557251908397" y="-653.52112676056345"/>
         </scene>
+        <!--Instructions View Controller-->
+        <scene sceneID="mWq-7S-jyC">
+            <objects>
+                <viewController storyboardIdentifier="HelpVC" id="5Nu-eO-SEo" customClass="InstructionsViewController" customModule="RestaurantRNG" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VyM-Ks-3SJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.up.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ck5-ZA-JZb">
+                                <rect key="frame" x="251" y="116.33333333333334" width="95" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VSy-Ao-pfx">
+                                <rect key="frame" x="16" y="60.333333333333314" width="50" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMH-I9-IfM">
+                                <rect key="frame" x="159" y="371" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="5Nu-eO-SEo" eventType="touchUpInside" id="ctH-5H-9W7"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QXO-Zb-f6z">
+                                <rect key="frame" x="76" y="463.33333333333337" width="240" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oNn-YD-voc"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ud0-7l-Tw7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ce8-gr-oIo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1017.5572519083969" y="336.61971830985919"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
+        <image name="arrow.down" catalog="system" width="118" height="128"/>
+        <image name="arrow.up" catalog="system" width="118" height="128"/>
+        <image name="arrow.up.right" catalog="system" width="128" height="112"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
-        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
+        <image name="location.fill" catalog="system" width="128" height="119"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
+        <image name="questionmark.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

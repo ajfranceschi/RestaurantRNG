@@ -16,10 +16,11 @@ class MapViewController: UIViewController {
     @IBOutlet weak var chooseButton: UIButton!
     @IBOutlet weak var profileButton: UIBarButtonItem!
     @IBOutlet weak var prefsButton: UIBarButtonItem!
+    @IBOutlet weak var centerOnUserLocationButton: UIButton!
     
     private let locationManager = CLLocationManager()
     // set current location to FIU campus until updated by device location
-    private var currentLocation : CLLocation = CLLocation(latitude: 25.7562, longitude: -80.3755)
+    private var currentLocation : CLLocation? //= CLLocation(latitude: 25.7562, longitude: -80.3755)
     
     // store data from the settings VC
     var distance = 5.0
@@ -36,12 +37,18 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+//        if let helpVC = storyboard?.instantiateViewController(withIdentifier: "HelpVC") {
+//            // helpVC.modalPresentationStyle = .currentContext
+//            // show(helpVC, sender: self)
+//            present(helpVC, animated: true)
+//        }
+        // }
         
         locationManager.requestWhenInUseAuthorization()
         
         if locationManager.authorizationStatus == .denied {
-            showGenericAlert(description: "Application denied user location data. Please update Settings.")
-            openSettings()
+            showAlert(title: "Location Error", message: "Application denied user location data. Please update Settings.", type: "locationDenied")
         } else {
             
             // set CLLocationManager delegate to self
@@ -68,9 +75,10 @@ class MapViewController: UIViewController {
         // set mapView's region based on coordinates
         // span represents "zoom level", where a small value is more zoomed in
         // this should eventually be adjusted based on search radius selected by user
-        let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: latitudeDelta/69, longitudeDelta: longitudeDelta/69)) // each CLLocationDegree used in MKCoordinateRegion represents 69 miles
-        mapView.setRegion(region, animated: false)
-        
+        if let currentLocation = currentLocation {
+            let region = MKCoordinateRegion(center: currentLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: latitudeDelta/50, longitudeDelta: longitudeDelta/25)) // each CLLocationDegree used in MKCoordinateRegion represents 69 miles
+            mapView.setRegion(region, animated: true)
+        }
         // remove anotations
         self.mapView.annotations.forEach {
           if !($0 is MKUserLocation) {
@@ -97,22 +105,35 @@ class MapViewController: UIViewController {
         
         // MARK: Declare a constant named YELP_API_KEY in /RestaurantRNG/Env/EnvVars.swift (must create structure for your project)
 
-        if NetworkMonitor.shared.isConnected {
+//        if NetworkMonitor.shared.isConnected {
+        if let currentLocation = currentLocation {
             let latitude = currentLocation.coordinate.latitude
             let longitude = currentLocation.coordinate.longitude
             getRestaurantsFromYelp(currentLatitude: latitude, currentLongitude: longitude)
         }
-        else {
-            showGenericAlert(description: "No connectivity, please try again later.")
+//        }
+//        else {
+//            showGenericAlert(description: "No connectivity, please try again later.")
+//        }
+    }
+    
+    
+    @IBAction func didTapHelpButton(_ sender: UIBarButtonItem) {
+        if let instructionsVC = storyboard?.instantiateViewController(withIdentifier: "HelpVC") {
+            present(instructionsVC, animated: true)
         }
     }
     
-    
-    @IBAction func didTapProfileButton(_ sender: UIBarButtonItem) {
-        print("Button Pressed")
+    @IBAction func didTapCenterOnUserLocationButton(_ sender: UIButton) {
         
+        DispatchQueue.main.async {
+//            let region = MKCoordinateRegion(center: self.currentLocation.coordinate, span: self.mapView.region.span)
+//            self.mapView.setRegion(region, animated: true)
+            self.updateMapView(self.distance, self.distance)
+        }
     }
     
+    // MARK: prepareForSegue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Pass data to RestaurantViewController
@@ -135,7 +156,8 @@ class MapViewController: UIViewController {
     // function called when VCs exit
     @IBAction func unwindMapViewVC(segue: UIStoryboardSegue) {
         if let settingsVC = segue.source as? SettingsViewController {
-            if NetworkMonitor.shared.isConnected {
+//            if NetworkMonitor.shared.isConnected {
+            if let currentLocation = currentLocation {
                 getRestaurantsFromYelp(
                     currentLatitude: currentLocation.coordinate.latitude,
                     currentLongitude: currentLocation.coordinate.longitude,
@@ -144,9 +166,10 @@ class MapViewController: UIViewController {
                     price: settingsVC.price
                 )
             }
-            else {
-                showGenericAlert(description: "No connectivity, please try again later.")
-            }
+//            }
+//            else {
+//                showGenericAlert(description: "No connectivity, please try again later.")
+//            }
         } else if let restaurantVC = segue.source as? RestaurantViewController {
             if restaurantVC.accepted {
                 print("Accepted Restaurant")
@@ -170,13 +193,14 @@ class MapViewController: UIViewController {
                 showAlert(title: "😱", message: """
                 No more options!
                 Change your settings for more options
-                """
+                """, type: "outOfRestaurants"
                 )
             }
             
         }
     }
     
+    // open Settings
     func openSettings() {
         guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
             return
@@ -198,9 +222,29 @@ extension MapViewController : CLLocationManagerDelegate {
                 self.currentLocation = location
                 
                 // update region for map to track user's location
-                self.mapView.region = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+                self.updateMapView(self.distance, self.distance)
                 self.updateRestaurants()
             }
+        }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        // called when location auth is changed.
+        DispatchQueue.main.async {
+            
+            if manager.authorizationStatus == .authorizedWhenInUse || manager.authorizationStatus == .authorizedAlways {
+                manager.requestLocation()
+            } else {
+                self.showAlert(title: "Location Error", message: "Location needs to be allowed in Settings to choose a nearby restaurant for you.", type: "locationDenied")
+            }
+            
+            if let location = manager.location {
+                self.currentLocation = location
+            }
+            
+            // update region for map to track user's location
+            self.updateMapView(self.distance, self.distance)
+            self.updateRestaurants()
         }
     }
     
@@ -212,10 +256,7 @@ extension MapViewController : CLLocationManagerDelegate {
 
 
 //MARK: - mapView Delegate Methods
-extension MapViewController : MKMapViewDelegate {
-    
-    
-}
+extension MapViewController : MKMapViewDelegate {}
 
 
 // MARK: Fetch Restaurants
@@ -223,10 +264,10 @@ extension MapViewController {
     func getRestaurantsFromYelp(currentLatitude latitude: Double, currentLongitude longitude: Double, distance: Double = 0, rating: Double = 0, price: Int = 5) {
 
         // checks for network connection first and returns upon failure
-        guard(NetworkMonitor.shared.isConnected) else {
-            showGenericAlert(description: "There is currently no internet connection! Please try again later.")
-            return
-        }
+//        guard(NetworkMonitor.shared.isConnected) else {
+//            showGenericAlert(description: "There is currently no internet connection! Please try again later.")
+//            return
+//        }
         
         guard (latitude >= -90 && latitude <= 90) else {
             print("latitude must be between -90 and 90")
@@ -304,23 +345,42 @@ extension MapViewController {
 
 // MARK: ALERTS
 extension MapViewController {
-    func showAlert(title: String, message: String) {
+    func showAlert(title: String, message: String, type: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default) { action in
-            self.getRestaurantsFromYelp(
-                currentLatitude: self.currentLocation.coordinate.latitude,
-                currentLongitude: self.currentLocation.coordinate.longitude,
-                distance: self.distance,
-                rating: self.rating,
-                price: self.price
-            )
-            
-            DispatchQueue.main.async {
-                self.updateMapView(self.distance, self.distance) // this can be changed to use only one distance
-            }
-        }
         
-        alertController.addAction(action)
+        switch type {
+            case "locationDenied":
+                let action = UIAlertAction(title: "Open Settings", style: .default) {_ in
+                    self.openSettings()
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+                alertController.addAction(action)
+                alertController.addAction(cancelAction)
+                break
+            case "outOfRestaurants":
+                let action = UIAlertAction(title: "OK", style: .default) { action in
+                    self.getRestaurantsFromYelp(
+                        currentLatitude: self.currentLocation!.coordinate.latitude,
+                        currentLongitude: self.currentLocation!.coordinate.longitude,
+                        distance: self.distance,
+                        rating: self.rating,
+                        price: self.price
+                    )
+                    
+                    DispatchQueue.main.async {
+                        self.updateMapView(self.distance, self.distance) // this can be changed to use only one distance
+                    }
+                }
+                alertController.addAction(action)
+                break
+            default:
+                let action = UIAlertAction(title: title, style: .default)
+                alertController.addAction(action)
+                break
+        }
+            
+        
+       
         present(alertController, animated: true)
     }
 }
